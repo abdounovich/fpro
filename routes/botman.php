@@ -1,4 +1,6 @@
 <?php
+use BotMan\BotMan\BotManFactory;
+use BotMan\BotMan\Drivers\DriverManager;
 use App\Http\Controllers\BotManController;
 
 
