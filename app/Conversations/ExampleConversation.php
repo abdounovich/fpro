@@ -2,6 +2,7 @@
 
 namespace App\Conversations;
 
+use App\Commande;
 use Illuminate\Foundation\Inspiring;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Outgoing\Question;
@@ -13,33 +14,61 @@ class ExampleConversation extends Conversation
     /**
      * First question
      */
-    public function askReason()
-    {
-        $question = Question::create("Huh - you woke me up. What do you need?")
-            ->fallback('Unable to ask question')
-            ->callbackId('ask_reason')
-            ->addButtons([
-                Button::create('Tell a joke')->value('joke'),
-                Button::create('Give me a fancy quote')->value('quote'),
-            ]);
+    protected $firstname;
+    protected $phone;
+    protected $f;
+    protected $m;
+protected $user;
 
-        return $this->ask($question, function (Answer $answer) {
-            if ($answer->isInteractiveMessageReply()) {
-                if ($answer->getValue() === 'joke') {
-                    $joke = json_decode(file_get_contents('http://api.icndb.com/jokes/random'));
-                    $this->say($joke->value->joke);
-                } else {
-                    $this->say(Inspiring::quote());
-                }
-            }
-        });
+public function __construct(string $m ,string $f) {
+
+    $this->m = $m;
+    $this->f = $f;
+}
+
+    public function askFirstname(){
+
+        
+    $question = Question::create('المقياس?')->addButtons([
+
+        Button::create('S')->value('S'),
+        Button::create('M')->value('M'),
+        Button::create('L')->value('L'),
+        Button::create('XL')->value('XL'),
+        Button::create('XXL')->value('XLL'),]);
+
+        $this->ask($question, function (Answer $answer) {
+        $this->taille=$answer->getText(); 
+        $this->bot->reply('Awesome'.$this->taille) ; 
+     
+                // Save result
+    
+        $this->ask('تبقت مرحلة أخيرة فقط  .. من فضلك أدخل رقم هاتفك حتى نتواصل معك لتأكيد الطلبية', function(Answer $answer) {
+                // Save result
+        $this->phone = $answer->getText();
+        $this->add();
+               
+            }); 
+    });
+        
+    
     }
 
-    /**
-     * Start the conversation
-     */
+    public function add()
+    {
+        
+    $c=new Commande();
+      $c->product_id=$this->m;;
+      $c->telephone=$this->phone;
+      $c->type='1';
+      $c->taille=$this->taille;
+      $c->facebook= $this->f;
+      $c->save();
+      $this->say('Great - that is all we need, '.$this->firstname);
+    }
     public function run()
     {
-        $this->askReason();
+        // This will be called immediately
+        $this->askFirstname();
     }
 }
