@@ -25,7 +25,7 @@ $botman->fallback(function($bot) {
     $user = $bot->getUser();
 
     $facebook = $user->getFirstName().' '.$user->getLastName();
-    $bot->reply("عذرا ".$facebook."لم أستطع فهمك 😕");
+    $bot->reply("عذرا ".$facebook."لم أستطع فهمك 😕 \n");
     $bot->reply('هذه قائمة بالأوامر التي أفهمها ');
 
 });
