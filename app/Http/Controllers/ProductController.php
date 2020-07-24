@@ -48,13 +48,11 @@ class ProductController extends Controller
 
 
 
-                $photo=$request->file('photo');
-        
-                $imageName = time().'.'.request()->photo->getClientOriginalExtension();
-            image::make($photo)->resize(300,300)->save(public_path('images/avatar/').$imageName);
+                
+             
               $p=new Product();
               $p->nom=$request->nom;
-              $p->photo=$imageName;
+              $p->photo=$request->photo;
               $p->categorie_id=$request->categorie_id;
               $p->taille=$request->taille;
 

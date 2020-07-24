@@ -14,6 +14,29 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/AP', function () {
+    return view('add_products');
+});
 
+Route::post('/AP','ProductController@store');
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/tinker', 'BotManController@tinker');
+
+Route::get('/commandes', 'CommandeController@show');
+Route::get('storage/images/avatar/{filename}', function ($filename)
+{
+    $path = storage_path('public/' . $filename);
+
+    if (!File::exists($path)) {
+        abort(404);
+    }
+
+    $file = File::get($path);
+    $type = File::mimeType($path);
+
+    $response = Response::make($file, 200);
+    $response->header("Content-Type", $type);
+
+    return $response;
+});
+

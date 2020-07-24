@@ -52,21 +52,10 @@
                   <div class="form-group">
                     <img class="img-fluid img-thumbnail" id="image" src="images/avatar/avatar.png" alt="" width="200" height="200">
                 
-                  <input type="file"  id="avatar" class=" btn btn-md" name="photo" placeholder="photo">
+                  <input type="text"  id="avatar" class=" btn btn-md" name="photo" placeholder="photo">
                 
                 </div>
-                <script language="javascript">$('document').ready(function () {
-                  $("#avatar").change(function () {
-                      if (this.files && this.files[0]) {
-                          var reader = new FileReader();
-                          reader.onload = function (e) {
-                              $('#image').attr('src', e.target.result);
-                          }
-                          reader.readAsDataURL(this.files[0]);
-                      }
-                  });
-                  });
-              </script>
+             
      
   
                   <div class="form-group">
