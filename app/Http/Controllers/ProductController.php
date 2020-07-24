@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use JD\Cloudder\Facades\Cloudder;
 use Intervention\Image\Facades\Image as Image;
 
 
@@ -45,14 +46,17 @@ class ProductController extends Controller
             if ($request->isMethod('post')) 
                  
                {
-
-
-
-                
-             
+         
+                $image_name = $request->file('photo')->getRealPath();;
+         
+                Cloudder::upload($image_name, null);
+         
+                list($width, $height) = getimagesize($image_name);
+         
+                $image_url= Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height"=>$height]);
               $p=new Product();
               $p->nom=$request->nom;
-              $p->photo=$request->photo;
+              $p->photo= $image_url;
               $p->categorie_id=$request->categorie_id;
               $p->taille=$request->taille;
 

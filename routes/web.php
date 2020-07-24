@@ -11,6 +11,13 @@
 |
 */
 
+
+Route::post('/upload/images', [
+  'uses'   =>  'ImageUploadController@uploadImages',
+  'as'     =>  'uploadImage'
+]);
+
+
 Route::get('/', function () {
     return view('welcome');
 });

@@ -26,8 +26,14 @@
   
           <div class="row mb-5">
             <div class="col-lg-12">
-     <form action="/AP" method="post" role="form" enctype="multipart/form-data" class="p-4 p-md-5 border rounded">
+     <form action="/AP"  method="post" role="form" enctype="multipart/form-data" class="p-4 p-md-5 border rounded">
         {{ csrf_field() }}
+        @if(session()->has('status'))
+        <div class="alert alert-info" role="alert">
+            {{session()->get('status')}}
+        </div>
+    @endif
+ 
         <h3 class="text-black mb-5 border-bottom pb-2">ajouter un Produit</h3>
                 
               
@@ -52,8 +58,12 @@
                   <div class="form-group">
                     <img class="img-fluid img-thumbnail" id="image" src="images/avatar/avatar.png" alt="" width="200" height="200">
                 
-                  <input type="text"  id="avatar" class=" btn btn-md" name="photo" placeholder="photo">
-                
+                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                      <input type="file" name="photo" class="form-control" id="name" value="">
+                      @if($errors->has('image_name'))
+                          <span class="help-block">{{ $errors->first('image_name') }}</span>
+                      @endif
+                  </div>                
                 </div>
              
      
