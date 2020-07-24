@@ -43,10 +43,10 @@ else{
 
 foreach($prod as $pro){
 
-    $taille='المقاسات  : S M L XL XXL';
+
     $b= Element::create($pro->nom)
-    ->subtitle($taille)
-    ->image($im)
+    ->subtitle('المقاسات المتوفرة : S M L XL XXL')
+    ->image($pro->photo)
     ->addButton(ElementButton::create('احجز')
         ->payload('p'.$pro->id)
         ->type('postback'));
