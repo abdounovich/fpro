@@ -22,16 +22,13 @@ $botman = resolve('botman');
 
 
 $botman->fallback(function($bot) {
-    $user = $bot->getUser();
-
-    $facebook = $user->getFirstName().' '.$user->getLastName();
-    $bot->reply("عذرا ".$facebook."\n"."لم أستطع فهمك 😕 ");
-    $bot->reply('هذه قائمة بالأوامر التي أفهمها ');
-
+    
+    $bot->reply('عذرًا ، لم أستطع فهمك 😕. هذه قائمة بالأوامر التي أفهمها: ..');
 });
 $botman->hears('show_products', function($bot) {
-  
+   
 $a=[];
+$c='';
 $total=Product::all()->count();
 $bot->reply($total);
 for ($i=1; $i<=$total ; $i++) { 
@@ -43,14 +40,20 @@ else{
 
 foreach($prod as $pro){
 
+    foreach($pro->taille as $t){
+        $c.=$t.' ';
 
+    }
+$im=$pro->photo;
     $b= Element::create($pro->nom)
-    ->subtitle(' المتوفرة /')
-    ->image($pro->photo)
+    ->subtitle($c.'المقاسات المتوفرة')
+    ->image($im)
     ->addButton(ElementButton::create('احجز')
         ->payload('p'.$pro->id)
         ->type('postback'));
        $a[]=$b;
+       $c='';
+
     
 } 
 
@@ -70,9 +73,10 @@ $n=GenericTemplate::create()
 
 $botman->hears('p([0-9]+)', function ($bot, $number) {
     $user = $bot->getUser();
-
-$facebook = $user->getFirstName().' '.$user->getLastName();
-  
+    // Access first name
+    $firstname = $user->getFirstName();
+    $lastname = $user->getLastName();
+    $facebook=$firstname.'-'.$lastname;
     $bot->startConversation(new ExampleConversation($number,$facebook));
 
 });

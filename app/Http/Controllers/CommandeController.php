@@ -45,11 +45,11 @@ class CommandeController extends Controller
      * @param  \App\Commande  $commande
      * @return \Illuminate\Http\Response
      */
-    public function show(Commande $commande)
+    public function show()
     {
         $com=Commande::all();
-        $p=Product::all();
-        return view('commands')->with('com',$com)->with('p',$p);
+      
+        return view('commands')->with('com',$com);
 
 
     }

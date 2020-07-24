@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Commande;
 use Illuminate\Http\Request;
 use JD\Cloudder\Facades\Cloudder;
 use Intervention\Image\Facades\Image as Image;
@@ -72,9 +73,12 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show()
     {
-        //
+        $pro=Product::all();
+      
+        return view('show_products')->with('pro',$pro);
+
     }
 
     /**

@@ -11,11 +11,13 @@
 |
 */
 
+Route::get('/AP', 'ImageUploadController@home');
 
 Route::post('/upload/images', [
   'uses'   =>  'ImageUploadController@uploadImages',
   'as'     =>  'uploadImage'
 ]);
+Route::get('/show_p', 'ProductController@show');
 
 
 Route::get('/', function () {
