@@ -28,14 +28,12 @@ public function __construct(string $m ,string $f) {
 
     public function askFirstname(){
 
-        
-    $question = Question::create('المقياس?')->addButtons([
-
-        Button::create('S')->value('S'),
+        $arr=["Button::create('S')->value('S'),
         Button::create('M')->value('M'),
         Button::create('L')->value('L'),
         Button::create('XL')->value('XL'),
-        Button::create('XXL')->value('XLL'),]);
+        Button::create('XXL')->value('XLL'),"];
+    $question = Question::create('المقياس?')->addButtons($arr);
 
         $this->ask($question, function (Answer $answer) {
         $this->taille=$answer->getText(); 
