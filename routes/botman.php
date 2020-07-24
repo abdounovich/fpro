@@ -45,7 +45,7 @@ foreach($prod as $pro){
 
 
     $b= Element::create($pro->nom)
-    ->subtitle(' المتوفرة'.$pro->taille)
+    ->subtitle(' المتوفرة'.$pro->taille.' /')
     ->image($pro->photo)
     ->addButton(ElementButton::create('احجز')
         ->payload('p'.$pro->id)
