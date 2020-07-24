@@ -19,9 +19,15 @@ use BotMan\Drivers\Facebook\Extensions\MediaAttachmentElement;
  
 $botman = resolve('botman');
 
+$user = $bot->getUser();
+
+$facebook = $user->getFirstName().' '.$user->getLastName();
 
 $botman->fallback(function($bot) {
-    $bot->reply('عذرًا ، لم أستطع فهمك 😕. هذه قائمة بالأوامر التي أفهمها: ..');
+
+    $bot->reply("عذرا ".$facebook."لم أستطع فهمك 😕");
+    $bot->reply('هذه قائمة بالأوامر التي أفهمها ');
+
 });
 $botman->hears('show_products', function($bot) {
   
@@ -63,9 +69,7 @@ $n=GenericTemplate::create()
 });
 
 $botman->hears('p([0-9]+)', function ($bot, $number) {
-    $user = $bot->getUser();
-
-    $facebook = $user->getFirstName().' '.$user->getLastName();
+  
     $bot->startConversation(new ExampleConversation($number,$facebook));
 
 });
