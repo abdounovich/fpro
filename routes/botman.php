@@ -43,7 +43,7 @@ else{
 
 foreach($prod as $pro){
 
-$im='https://www.dropbox.com/home/Applications/ajmoda/'.$pro->photo;
+$im=$pro->photo;
     $b= Element::create($pro->nom)
     ->subtitle('المقاسات المتوفرة : S M L XL XXL')
     ->image($im)
