@@ -19,9 +19,7 @@ use BotMan\Drivers\Facebook\Extensions\MediaAttachmentElement;
  
 $botman = resolve('botman');
 
-$botman->hears('show_products', function($bot) {
-    $bot->reply("hello");
-});
+
 
 $botman->fallback(function($bot) {
     
