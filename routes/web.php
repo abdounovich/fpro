@@ -23,6 +23,10 @@ Route::get('/show_p', 'ProductController@show');
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('test', function () {
+    return view('test');
+});
 Route::get('/AP', function () {
     return view('add_products');
 });

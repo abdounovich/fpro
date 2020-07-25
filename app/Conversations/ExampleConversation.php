@@ -2,6 +2,7 @@
 
 namespace App\Conversations;
 
+use App\Product;
 use App\Commande;
 use Illuminate\Foundation\Inspiring;
 use BotMan\BotMan\Messages\Incoming\Answer;
@@ -18,29 +19,37 @@ class ExampleConversation extends Conversation
     protected $phone;
     protected $f;
     protected $m;
+    protected $arr;
+    protected $tbl;
 protected $user;
 
 public function __construct(string $m ,string $f) {
 
     $this->m = $m;
     $this->f = $f;
+    
 }
 
     public function askFirstname(){
+$this->arr=[];
+       
+           
 
-        
-    $question = Question::create('المقياس?')->addButtons([
+        $this->tbl=Product::where('id', $this->m)->get();
 
-        Button::create('S')->value('S'),
-        Button::create('M')->value('M'),
-        Button::create('L')->value('L'),
-        Button::create('XL')->value('XL'),
-        Button::create('XXL')->value('XLL'),]);
+
+        foreach ($this->tbl as $t ) {
+
+            foreach($t->taille as $gg){
+            $this->arr[]=  Button::create($gg)->value($gg);
+           }  }
+    $question = Question::create('المقياس?')->addButtons($this->arr);
 
         $this->ask($question, function (Answer $answer) {
         $this->taille=$answer->getText(); 
         $this->bot->reply('Awesome'.$this->taille) ; 
-     
+        $sup=Product::where('id',$this->m)->first();
+
                 // Save result
     
         $this->ask('تبقت مرحلة أخيرة فقط  .. من فضلك أدخل رقم هاتفك حتى نتواصل معك لتأكيد الطلبية', function(Answer $answer) {
