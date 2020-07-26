@@ -9,7 +9,12 @@ use BotMan\Drivers\Facebook\Extensions\Element;
 use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
 use BotMan\Drivers\Facebook\Extensions\ElementButton;
 use BotMan\Drivers\Facebook\Extensions\ButtonTemplate;
+use BotMan\Drivers\Facebook\Extensions\ReceiptAddress;
+use BotMan\Drivers\Facebook\Extensions\ReceiptElement;
+use BotMan\Drivers\Facebook\Extensions\ReceiptSummary;
 use BotMan\Drivers\Facebook\Extensions\GenericTemplate;
+use BotMan\Drivers\Facebook\Extensions\ReceiptTemplate;
+use BotMan\Drivers\Facebook\Extensions\ReceiptAdjustment;
 use BotMan\Drivers\Facebook\Extensions\MediaAttachmentElement;
 
 
@@ -22,6 +27,7 @@ $botman = resolve('botman');
 
 
 
+
 $botman->fallback(function($bot) {
     
     $bot->reply('عذرًا ، لم أستطع فهمك 😕. هذه قائمة بالأوامر التي أفهمها: ..');
@@ -30,8 +36,8 @@ $botman->hears('show_products', function($bot) {
    
 $a=[];
 $c='';
-$total=Product::all()->count();
-$bot->reply($total);
+$bot->reply('هاذه قائمة منتجاتنا نتمنى أن تنال إعجابكم');
+
 for ($i=1; $i<=$total ; $i++) { 
 $prod = Product::where('categorie_id',$i)->get();
 if($prod->count() == 0){
@@ -53,9 +59,9 @@ foreach ($od as $ooo ) {
   }  
 $im=$pro->photo;
     $b= Element::create($pro->nom)
-    ->subtitle($c.'المقاسات المتوفرة')
+    ->subtitle($c.' : المقاسات المتوفرة')
     ->image($im)
-    ->addButton(ElementButton::create('احجز')
+    ->addButton(ElementButton::create('شراء هذا المنتج')
         ->payload('p'.$pro->id)
         ->type('postback'));
        $a[]=$b;
@@ -91,18 +97,16 @@ $botman->hears('p([0-9]+)', function ($bot, $number) {
 
 
 
-$botman->hears('1', function ($bot) {
+$botman->hears('GET_STARTED', function ($bot) {
     $bot->typesAndWaits(1);
-
-
-    $attachment = new Image('https://www.dropbox.com/s/h0porkewt992bra/cz6N7OGKx0GDeOrzxNcXT6GhSNSucjaHaaRC8p0T.jpeg?raw=1', [
+    $attachment = new Image('https://res.cloudinary.com/ds9qfm1ok/image/upload/v1595802550/logo_haxyq6.jpg', [
         'custom_payload' => true,
     ]);
     
     // Build message object
     $message = OutgoingMessage::create('This is my text')
                 ->withAttachment($attachment);
-    
+
     // Reply message object
     $bot->reply($message);
     $user = $bot->getUser();
