@@ -67,20 +67,24 @@
                 </div>
              
      
-  
-                  <div class="form-group">
-                                        <fieldset>
-<label>taille :</label>
+                <div class="form-group">
+                  <label for="cat">taille :</label>
 
-                    
-                    <input  name="taille[]" type="checkbox" value="S" class="form-control">S 
-                    <input  name="taille[]" type="checkbox" value="M" class="form-control">M
-                    <input  name="taille[]" type="checkbox" value="L" class="form-control">L
-                    <input  name="taille[]" type="checkbox" value="XL" class="form-control">XL
-                    <input  name="taille[]" type="checkbox" value="XXL" class="form-control">XXL
-</fieldset>
+                  @php ($lesTailles = ['S','M','L','XL','XXL'])
 
-                  </div>
+                  @foreach ($lesTailles as $item)
+                  <p></p>
+                <input name="taille{{$item}}" type="text" value="{{$item}}" class="form-control"  placeholder="taille">
+                  <input name="nombre{{$item}}" type="text" value="3" class="form-control" placeholder="nombre"> 
+                  @endforeach
+                 
+
+                </div>
+             
+           
+          </div>
+          <div>
+       
      
     
   

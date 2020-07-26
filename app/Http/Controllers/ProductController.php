@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Taille;
 use App\Product;
 use App\Commande;
 use Illuminate\Http\Request;
@@ -59,9 +60,22 @@ class ProductController extends Controller
               $p->nom=$request->nom;
               $p->photo= $image_url;
               $p->categorie_id=$request->categorie_id;
-              $p->taille=$request->taille;
 
-              $p->save();}
+              $p->save();
+
+$Titem=['S','M','L','XL','XXL'];
+foreach ($Titem as $key ) {
+  
+
+              $t=new Taille();
+              $t->taille=$request->taille.$key;
+              $t->nombre=$request->get('nombre'.$key);
+           
+              $t->product_id= $p->id;
+
+              $t->save();
+            }
+            }
 
               return view('add_products');
 

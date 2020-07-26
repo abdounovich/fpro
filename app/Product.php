@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Taille;
 use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
@@ -16,5 +17,11 @@ class Product extends Model
     {
 
         return $this->hasMany(Commande::class);
+    }
+
+    public function taille()
+    {
+
+        return $this->hasMany(Taille::class);
     }
 }

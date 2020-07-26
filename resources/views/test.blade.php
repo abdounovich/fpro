@@ -1,9 +1,9 @@
 <?php  
 
-use App\Product;
+use App\Taille;
 
-$c=Product::where('id','10')->get(['taille'])->first();
-echo  (string) $c;
+$c=Taille::where('product_id','1')->where('taille','M')->first();
+echo $c->id;
 
 
 

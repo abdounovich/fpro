@@ -1,4 +1,5 @@
 <?php
+use App\Taille;
 use App\Product;
 use App\Conversations\ExampleConversation;
 use App\Http\Controllers\BotManController;
@@ -34,16 +35,22 @@ $bot->reply($total);
 for ($i=1; $i<=$total ; $i++) { 
 $prod = Product::where('categorie_id',$i)->get();
 if($prod->count() == 0){
+    
    }
 else{
     $bot->typesAndWaits(1);
 
 foreach($prod as $pro){
 
-    foreach($pro->taille as $t){
-        $c.=$t.' ';
+    $od = Taille::where('product_id',$pro->id)->get();
+foreach ($od as $ooo ) {
+   
+    if ($ooo->nombre>0) {
+        $c.=$ooo->taille.' ';
 
     }
+       
+  }  
 $im=$pro->photo;
     $b= Element::create($pro->nom)
     ->subtitle($c.'المقاسات المتوفرة')
@@ -106,7 +113,7 @@ $lastname = $user->getLastName();
 $bot->reply($firstname . "-".$lastname. ' : مرحبا بك ☺ ');
 $bot->reply( 'تشرفنا زيارتك لصفحة AJMODA');
 $bot->reply(ButtonTemplate::create('كيف يمكننا خدمتك')
-	->addButton(ElementButton::create('تصفح سلعنا ؟')
+	->addButton(ElementButton::create('تصفح سلعنا؟')
 	    ->type('postback')
 	    ->payload('show_products')
 	)

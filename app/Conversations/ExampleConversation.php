@@ -2,6 +2,7 @@
 
 namespace App\Conversations;
 
+use App\Taille;
 use App\Product;
 use App\Commande;
 use Illuminate\Foundation\Inspiring;
@@ -35,19 +36,26 @@ $this->arr=[];
        
            
 
-        $this->tbl=Product::where('id', $this->m)->get();
+        $this->tbl=Taille::where('product_id', $this->m)->get();
 
 
         foreach ($this->tbl as $t ) {
 
-            foreach($t->taille as $gg){
-            $this->arr[]=  Button::create($gg)->value($gg);
-           }  }
+            if ($t->nombre>0) {
+               
+           
+            $this->arr[]=  Button::create($t->taille)->value($t->taille);
+           }  } 
     $question = Question::create('المقياس?')->addButtons($this->arr);
 
         $this->ask($question, function (Answer $answer) {
         $this->taille=$answer->getText(); 
         $this->bot->reply('Awesome'.$this->taille) ; 
+        $this->tb=Taille::where('product_id',$this->m)->where('taille',$this->taille)->first();
+
+
+        $this->tbl=Taille::where('product_id',$this->m)->where('taille',$this->taille)
+        ->update(array('nombre' =>  $this->tb->nombre-1));  
         $sup=Product::where('id',$this->m)->first();
 
                 // Save result
