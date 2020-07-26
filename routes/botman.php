@@ -59,7 +59,7 @@ foreach ($od as $ooo ) {
        
   }  
 $im=$pro->photo;
-if($tt==0){
+if($tt<=0){
 
 }else{
     $b= Element::create($pro->nom)
