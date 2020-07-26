@@ -87,9 +87,7 @@ public function __construct(string $m ,string $f) {
             
             if($answer->getValue() === 'yes') {
                 $this->add();
-               
-               
-               
+
             }
             else{ $this->bot->reply('لقد تم إلغاء طلبك ');
                 return true;}
