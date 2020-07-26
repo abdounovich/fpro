@@ -36,8 +36,8 @@ $botman->hears('show_products', function($bot) {
    
 $a=[];
 $c='';
+$total=Product::all()->count();
 $bot->reply('هاذه قائمة منتجاتنا نتمنى أن تنال إعجابكم');
-
 for ($i=1; $i<=$total ; $i++) { 
 $prod = Product::where('categorie_id',$i)->get();
 if($prod->count() == 0){
