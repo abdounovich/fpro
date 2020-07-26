@@ -50,7 +50,7 @@ foreach($prod as $pro){
 
     $od = Taille::where('product_id',$pro->id)->get();
 foreach ($od as $ooo ) {
-    $tt.=$ooo->nombre;
+    $tt=$tt+$ooo->nombre;
     if ($ooo->nombre>0) {
 
         $c.=$ooo->taille.' ';
