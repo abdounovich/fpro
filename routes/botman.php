@@ -125,7 +125,6 @@ $bot->reply(ButtonTemplate::create('كيف يمكننا خدمتك')
 	    ->url('http://botman.io/')
 	)
 );
-   
 });
 
 
