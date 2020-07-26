@@ -44,7 +44,7 @@ if($prod->count() == 0){
     
    }
 else{
-    $bot->typesAndWaits(1);
+    $bot->typesAndWaits(.5);
 
 foreach($prod as $pro){
 
