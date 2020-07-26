@@ -70,6 +70,7 @@ if($tt<=0){
         ->type('postback'));
        $a[]=$b;
        $c='';
+       $tt=0;
 
     
 } }
