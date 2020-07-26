@@ -48,7 +48,7 @@ public function __construct(string $m ,string $f) {
            
             $this->arr[]=Button::create($t->taille)->value($t->taille);
            }  } 
-    $question = Question::create(' إختر المقاس الذي يناسبك بالضغط على أحد الأزرار أسفله')->addButtons($this->arr);
+    $question = Question::create(' إختر المقاس الذي يناسبك بالضغط على زر من القائمة أسفله ')->addButtons($this->arr);
         $this->ask($question, function (Answer $answer) {
         $this->taille=$answer->getText(); 
         $this->tb=Taille::where('product_id',$this->m)->where('taille',$this->taille)->first();
@@ -62,8 +62,7 @@ public function __construct(string $m ,string $f) {
         $this->ask(' من فضلك أدخل رقم هاتفك حتى نتواصل معك لتأكيد الطلبية', function(Answer $answer) {
                 // Save result
         $this->phone = $answer->getText();
-        $this->bot->reply('تأكيد الطلبية');
-        $this->bot->reply('لقد إخترت :');
+        $this->bot->reply(' 🛒تأكيد الطلبية');
         $this->attachment = new Image($this->sup->photo, [
             'custom_payload' => true,
         ]);
@@ -75,11 +74,11 @@ public function __construct(string $m ,string $f) {
         // Reply message object
       
         $this->bot->reply($this->message);
-        $this->bot->reply('سعر المنتج 3000 دج');
-        $this->bot->reply('المقاس :'.$this->taille); 
-        $question=Question::create('رقم الهاتف :'.$this->phone)->addButtons([
-            Button::create('تأكيد الطلبية')->value('yes'),
-            Button::create('إلغاء الطلب')->value('no'),
+        $this->bot->reply(' 💵 سعر المنتج 3000 دج');
+        $this->bot->reply(' 📏 المقاس :'.$this->taille); 
+        $question=Question::create(' ☎ رقم الهاتف : '.$this->phone)->addButtons([
+            Button::create(' ✅ تأكيد الطلبية')->value('yes'),
+            Button::create(' ❎ إلغاء الطلب')->value('no'),
         ]);
         $this->ask($question, function (Answer $answer) {
 
@@ -110,7 +109,7 @@ public function __construct(string $m ,string $f) {
       $c->taille=$this->taille;
       $c->facebook= $this->f;
       $c->save();
-      $this->say('عظيم  - هذا كل شيء سوف نتصل بكم قريبا..., '.$this->firstname);
+      $this->say('عظيم👏 هذا كل شيء سوف نتصل بكم قريبا... '.$this->firstname);
     }
     public function run()
     {
