@@ -78,7 +78,7 @@ public function __construct(string $m ,string $f) {
         $this->bot->reply('سعر المنتج 3000 دج');
         $this->bot->reply('المقاس :'.$this->taille); 
         $this->bot->reply('رقم الهاتف :'.$this->phone);
-        $question=Question::create('هل أنت متأكد ?')->addButtons([
+        $question=Question::create('نرجو من الإحتيار ')->addButtons([
             Button::create('تأكيد الطلبية')->value('yes'),
             Button::create('إلغاء الطلب')->value('no'),
         ]);
@@ -113,7 +113,7 @@ public function __construct(string $m ,string $f) {
       $c->taille=$this->taille;
       $c->facebook= $this->f;
       $c->save();
-      $this->say('Great - that is all we need, '.$this->firstname);
+      $this->say('عظيم  - هذا كل شيء سوف نتصل بكم قريبا..., '.$this->firstname);
     }
     public function run()
     {
