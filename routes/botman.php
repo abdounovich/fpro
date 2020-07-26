@@ -62,7 +62,7 @@ $im=$pro->photo;
 if($tt<=0){
 
 }else{
-    $b= Element::create($pro->nom)
+    $b= Element::create($tt)
     ->subtitle($c.' : المقاسات المتوفرة')
     ->image($im)
     ->addButton(ElementButton::create('شراء هذا المنتج')
