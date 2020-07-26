@@ -36,13 +36,13 @@ $botman->hears('show_products', function($bot) {
    
 $a=[];
 $c='';
+$tt=0;
 $total=Product::all()->count();
 $bot->reply('هاذه قائمة منتجاتنا نتمنى أن تنال إعجابكم');
 for ($i=1; $i<=$total ; $i++) { 
 $prod = Product::where('categorie_id',$i)->get();
 if($prod->count() == 0){
-    
-   }
+    }
 else{
     $bot->typesAndWaits(.5);
 
@@ -50,14 +50,18 @@ foreach($prod as $pro){
 
     $od = Taille::where('product_id',$pro->id)->get();
 foreach ($od as $ooo ) {
-   
+    $tt.=$ooo->nombre;
     if ($ooo->nombre>0) {
+
         $c.=$ooo->taille.' ';
 
     }
        
   }  
 $im=$pro->photo;
+if($tt==0){
+
+}else{
     $b= Element::create($pro->nom)
     ->subtitle($c.' : المقاسات المتوفرة')
     ->image($im)
@@ -68,7 +72,7 @@ $im=$pro->photo;
        $c='';
 
     
-} 
+} }
 
 $n=GenericTemplate::create()
 ->addImageAspectRatio(GenericTemplate::RATIO_SQUARE)

@@ -59,10 +59,10 @@ public function __construct(string $m ,string $f) {
                 // Save result
         $this->bot->reply('تبقت مرحلة أخيرة فقط');
 
-        $this->ask(' من فضلك أدخل رقم هاتفك حتى نتواصل معك لتأكيد الطلبية', function(Answer $answer) {
+        $this->ask(' من فضلك أدخل رقم هاتفك', function(Answer $answer) {
                 // Save result
         $this->phone = $answer->getText();
-        $this->bot->reply(' 🛒تأكيد الطلبية');
+        $this->bot->reply(' 🛒 تأكيد الطلبية');
         $this->attachment = new Image($this->sup->photo, [
             'custom_payload' => true,
         ]);
@@ -74,9 +74,9 @@ public function __construct(string $m ,string $f) {
         // Reply message object
       
         $this->bot->reply($this->message);
-        $this->bot->reply(' 💵 سعر المنتج 3000 دج');
+        $this->bot->reply('  سعر المنتج 3000 دج 💵');
         $this->bot->reply(' 📏 المقاس :'.$this->taille); 
-        $question=Question::create(' ☎ رقم الهاتف : '.$this->phone)->addButtons([
+        $question=Question::create('  رقم الهاتف ☎ '.$this->phone)->addButtons([
             Button::create(' ✅ تأكيد الطلبية')->value('yes'),
             Button::create(' ❎ إلغاء الطلب')->value('no'),
         ]);
@@ -109,7 +109,7 @@ public function __construct(string $m ,string $f) {
       $c->taille=$this->taille;
       $c->facebook= $this->f;
       $c->save();
-      $this->say('عظيم👏 هذا كل شيء سوف نتصل بكم قريبا... '.$this->firstname);
+      $this->say('عظيم 👏 هذا كل شيء سوف نتصل بكم قريبا... '.$this->firstname);
     }
     public function run()
     {
