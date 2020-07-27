@@ -63,7 +63,7 @@ if($tt<=0){
 
 }else{
     $b= Element::create($pro->nom)
-    ->subtitle($c.' : المقاسات المتوفرة '."\n"."3000 دج")
+    ->subtitle($c.' : المقاسات المتوفرة '."\n"."سعر المنتوج  : 3000 دج")
     ->image($im)
     ->addButton(ElementButton::create('شراء هذا المنتج')
         ->payload('p'.$pro->id)
@@ -122,7 +122,7 @@ $lastname = $user->getLastName();
 $bot->reply($firstname . "-".$lastname. ' : مرحبا بك 🙋‍♂ ');
 $bot->reply( '☺ تشرفنا زيارتك لصفحة AJMODA  ');
 $bot->reply(ButtonTemplate::create('كيف يمكننا خدمتك')
-	->addButton(ElementButton::create(' 🛍 منجاتنا ')
+	->addButton(ElementButton::create(' 🛍 منتجاتنا ')
 	    ->type('postback')
 	    ->payload('show_products')
 	)
