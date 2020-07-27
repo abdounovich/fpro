@@ -122,7 +122,7 @@ $lastname = $user->getLastName();
 $bot->reply($firstname . "-".$lastname. ' : مرحبا بك 🙋‍♂ ');
 $bot->reply( '☺ تشرفنا زيارتك لصفحة AJMODA  ');
 $bot->reply(ButtonTemplate::create('كيف يمكننا خدمتك')
-	->addButton(ElementButton::create(' 🛍تصفح منجاتنا ')
+	->addButton(ElementButton::create(' 🛍 منجاتنا ')
 	    ->type('postback')
 	    ->payload('show_products')
 	)
