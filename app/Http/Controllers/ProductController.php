@@ -65,7 +65,6 @@ class ProductController extends Controller
 
 $Titem=['S','M','L','XL','XXL'];
 foreach ($Titem as $key ) {
-  
 
               $t=new Taille();
               $t->taille=$request->taille.$key;
