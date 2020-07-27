@@ -46,7 +46,7 @@ $lastname = $user->getLastName();
 $bot->reply($firstname . "-".$lastname. ' : مرحبا بك 🙋‍♂ ');
 $bot->reply( '☺ تشرفنا زيارتك لصفحة AJMODA  ');
 
-$bot->reply(ButtonTemplate::create('  أنا الشات بوت سأتواصل معك تلقائيا كيف يمكنني خدمتك 🤖 ')
+$bot->reply(ButtonTemplate::create('؟ أنا الشات بوت 🤖 سأتواصل معك تلقائيا كيف يمكنني خدمتك  ')
 	->addButton(ElementButton::create(' 🛍 منتجاتنا ')
 	    ->type('postback')
 	    ->payload('show_products')
