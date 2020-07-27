@@ -81,9 +81,9 @@ return [
             'call_to_actions' => [
              
                         [
-                            'title' => 'Pay Bill',
+                            'title' => ' 🛍 منتجاتنا ',
                             'type' => 'postback',
-                            'payload' => 'PAYBILL_PAYLOAD',
+                            'payload' => 'show_products',
                         ],
                     
                 
