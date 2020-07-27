@@ -44,7 +44,7 @@ $prod = Product::where('categorie_id',$i)->get();
 if($prod->count() == 0){
     }
 else{
-    $bot->typesAndWaits(.5);
+    $bot->typesAndWaits(1);
 
 foreach($prod as $pro){
 
