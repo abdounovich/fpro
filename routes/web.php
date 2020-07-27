@@ -36,6 +36,7 @@ Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/tinker', 'BotManController@tinker');
 
 Route::get('/commandes', 'CommandeController@show');
+Route::get('/commande/{fb}', 'CommandeController@single');
 Route::get('storage/images/avatar/{filename}', function ($filename)
 {
     $path = storage_path('public/' . $filename);

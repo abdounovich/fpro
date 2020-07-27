@@ -71,7 +71,7 @@ $botman->hears('show_commandes', function($bot) {
     $facebook=$firstname.'-'.$lastname;
     $commandes = Commande::where('facebook',$facebook)->get();
     foreach ($commandes as $commande) {
-        $bot->reply($commande->product_id);
+        $bot->reply($commande->telephone);
 
     }
 

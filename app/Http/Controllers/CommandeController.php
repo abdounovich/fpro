@@ -13,9 +13,12 @@ class CommandeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function single($fb)
     {
-        //
+        $com=Commande::where('facebook',$fb)->get();
+      
+        return view('commande')->with('com',$com);
+            
     }
 
     /**
