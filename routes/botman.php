@@ -107,7 +107,7 @@ $botman->hears('p([0-9]+)', function ($bot, $number) {
 
 
 $botman->hears('GET_STARTED', function ($bot) {
-  
+    $bot->typesAndWaits(1);
     $attachment = new Image('http://smartbots.global/images/resources/smart-bot.gif', [
         'custom_payload' => true,
     ]);
