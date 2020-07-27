@@ -28,7 +28,7 @@ $botman = resolve('botman');
 
 $botman->hears('GET_STARTED', function ($bot) {
     $bot->typesAndWaits(1);
-    $attachment = new Image('http://smartbots.global/images/resources/smart-bot.gif', [
+/*     $attachment = new Image('http://smartbots.global/images/resources/smart-bot.gif', [
         'custom_payload' => true,
     ]);
     
@@ -37,7 +37,7 @@ $botman->hears('GET_STARTED', function ($bot) {
                 ->withAttachment($attachment);
 
     // Reply message object
-    $bot->reply($message); 
+    $bot->reply($message);  */
     $user = $bot->getUser();
 // Access first name
 $firstname = $user->getFirstName();
