@@ -28,14 +28,16 @@ $botman = resolve('botman');
 
 $botman->hears('GET_STARTED', function ($bot) {
     $bot->typesAndWaits(1);
- $attachment = new Image('https://www.smartbots.ai/wp-content/uploads/2019/04/bot-new.gif');
 
-// Build message object
-$message = OutgoingMessage::create('This is my text')
-            ->withAttachment($attachment);
 
-// Reply message object
-$bot->reply($message);
+    $attachment = new Image('http://smartbots.global/images/resources/smart-bot.gif');
+
+    // Build message object
+    $message = OutgoingMessage::create('This is my text')
+                ->withAttachment($attachment);
+    
+    // Reply message object
+    $bot->reply($message);
     $user = $bot->getUser();
 // Access first name
 $firstname = $user->getFirstName();
