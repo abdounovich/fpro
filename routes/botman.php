@@ -67,7 +67,11 @@ if($tt<=0){
     ->image($im)
     ->addButton(ElementButton::create('شراء هذا المنتج')
         ->payload('p'.$pro->id)
-        ->type('postback'));
+        ->type('postback'))
+        ->addButton(ElementButton::create('تكبير الصورة')
+	    ->url($pro->photo));
+	
+    
        $a[]=$b;
        $c='';
        $tt=0;
