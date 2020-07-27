@@ -62,7 +62,7 @@ $im=$pro->photo;
 if($tt<=0){
 
 }else{
-    $b= Element::create($tt)
+    $b= Element::create($pro->nom)
     ->subtitle($c.' : المقاسات المتوفرة')
     ->image($im)
     ->addButton(ElementButton::create('شراء هذا المنتج')
@@ -104,7 +104,7 @@ $botman->hears('p([0-9]+)', function ($bot, $number) {
 
 $botman->hears('GET_STARTED', function ($bot) {
     $bot->typesAndWaits(1);
-    $attachment = new Image('https://res.cloudinary.com/ds9qfm1ok/image/upload/v1595802550/logo_haxyq6.jpg', [
+    $attachment = new Image('http://smartbots.global/images/resources/smart-bot.gif', [
         'custom_payload' => true,
     ]);
     
@@ -120,9 +120,9 @@ $firstname = $user->getFirstName();
 $lastname = $user->getLastName();
 
 $bot->reply($firstname . "-".$lastname. ' : مرحبا بك 🙋‍♂ ');
-$bot->reply( 'تشرفنا زيارتك لصفحة AJMODA ☺ ');
+$bot->reply( '☺ تشرفنا زيارتك لصفحة AJMODA  ');
 $bot->reply(ButtonTemplate::create('كيف يمكننا خدمتك')
-	->addButton(ElementButton::create('تصفح سلعنا؟')
+	->addButton(ElementButton::create(' 🛍تصفح منجاتنا ')
 	    ->type('postback')
 	    ->payload('show_products')
 	)
