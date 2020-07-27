@@ -28,7 +28,7 @@ $botman = resolve('botman');
 
 $botman->hears('GET_STARTED', function ($bot) {
     $bot->typesAndWaits(1);
- $attachment = new Image('https://res.cloudinary.com/ds9qfm1ok/image/upload/v1595858202/bot-new_dkdkqd.gif');
+ $attachment = new Image('https://www.smartbots.ai/wp-content/uploads/2019/04/bot-new.gif');
 
 // Build message object
 $message = OutgoingMessage::create('This is my text')
