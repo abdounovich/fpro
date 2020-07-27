@@ -88,7 +88,7 @@ return [
                     
                 
                         [
-                            'title' => ' 🛍 طلبياتي ',
+                            'title' => ' 🛒 طلبياتي ',
                             'type' => 'postback',
                             'payload' => 'show_commandes',
                         ],
