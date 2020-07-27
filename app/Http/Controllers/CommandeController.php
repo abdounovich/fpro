@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Taille;
 use App\Product;
 use App\Commande;
 use Illuminate\Http\Request;
@@ -37,9 +38,10 @@ class CommandeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        
+        
     }
 
     /**
@@ -50,9 +52,12 @@ class CommandeController extends Controller
      */
     public function show()
     {
-        $com=Commande::all();
-      
-        return view('commands')->with('com',$com);
+        $comType1=Commande::where('type','1')->get();
+        $comType2=Commande::where('type','2')->get();
+        $comType3=Commande::where('type','3')->get();
+        
+
+        return view('commands')->with('comType1',$comType1)->with('comType2',$comType2)->with('comType3',$comType3);
 
 
     }
@@ -63,9 +68,14 @@ class CommandeController extends Controller
      * @param  \App\Commande  $commande
      * @return \Illuminate\Http\Response
      */
-    public function edit(Commande $commande)
+    public function edit(Request $request,Commande $commande)
     {
-        //
+  
+        $bl=Commande::where('id',$commande)->first();
+        $tr=Taille::where('product_id',$bl->product_id)->where('taille',$bl->taille)
+        ->update(array('nombre' => $tr->nombre+1));  
+
+        return redirect('/commandes');
     }
 
     /**
@@ -77,8 +87,12 @@ class CommandeController extends Controller
      */
     public function update(Request $request, Commande $commande)
     {
-        //
+        $commande->update($request->all());
+        return redirect('/commandes');
+
     }
+
+  
 
     /**
      * Remove the specified resource from storage.

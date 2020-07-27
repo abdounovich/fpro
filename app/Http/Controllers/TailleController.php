@@ -69,9 +69,9 @@ class TailleController extends Controller
      */
     public function update(Request $request, Taille $taille)
     {
-        //
+        $taille->update($request->all());
+        return redirect('/commandes');
     }
-
     /**
      * Remove the specified resource from storage.
      *

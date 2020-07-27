@@ -12,7 +12,9 @@
 <body>
 
 <div class="container">
-  <h2>Contextual Classes</h2>
+  <br>
+  <div class="h3">Commande en attente de confirmation </div>
+  <br>
   <table class="table">
     <thead>
       <tr>
@@ -23,6 +25,7 @@
         <th>Telephone</th>
         <th>Facebook</th>
         <th>Date</th>
+        <th></th>
 
       </tr>
     </thead>
@@ -31,24 +34,150 @@
      
    
   
-      @foreach ( $com as $cm )
+      @foreach ( $comType1 as $cm )
       <tr>
         <td>{{$cm->id}}</td>
 
-        <td>          <img class="img-fluid" width="200" height="200" src="'https://www.dropbox.com/home/Applications/ajmoda/'.{{$cm->photo}}" alt="">
+        <td>          <img class="img-fluid" width="50" height="50" src="{{$cm->product->photo}}" alt="">
 
         </td>
         <td>{{$cm->taille}}</td>
-        <td>{{$cm->nom}}</td>
+        <td>{{$cm->product->nom}}</td>
         <td>{{$cm->telephone}}</td>
         <td>{{$cm->facebook}}</td>
         <td>{{$cm->created_at}}</td>
+        <td>
+        
+        
+          <form action="{{ route('commandes.update',$cm->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+       
+            <input type="hidden" name="taille" value="{{ $cm->taille }}" class="form-control" placeholder="Name">
+            <input type="hidden" name="product_id" value="{{ $cm->product->nom}}" class="form-control" placeholder="Name">
+            <input type="hidden" name="telephone" value="{{ $cm->telephone }}" class="form-control" placeholder="Name">
+            <input type="hidden" name="facebook" value="{{ $cm->facebook }}" class="form-control" placeholder="Name">
+            <input type="hidden" name="type" value="2" class="form-control" placeholder="Name">
+
+               
+    
+                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                  <button type="submit" class="btn btn-success">Confirmer </button>
+                
+                  <button type="submit" class="btn btn-danger">Supprimer </button>
+                </div>
+         
+        </form>
+        
+        </td>
+
 
       </tr> @endforeach
     </tbody>
   </table>
 </div>
 
+
+<p></p>
+<div class="container">
+  <br>
+  <div class="h3">Commande en attente de livraison</div>
+  <br>
+<table class="table">
+ 
+  <tbody>
+     
+   
+ 
+
+    @foreach ( $comType2 as $cm )
+    <tr>
+      <td>{{$cm->id}}</td>
+
+      <td>          <img class="img-fluid" width="50" height="50" src="{{$cm->product->photo}}" alt="">
+
+      </td>
+      <td>{{$cm->taille}}</td>
+      <td>{{$cm->product->nom}}</td>
+      <td>{{$cm->telephone}}</td>
+      <td>{{$cm->facebook}}</td>
+      <td>{{$cm->created_at}}</td>
+      <td>
+      
+      
+        <form action="{{ route('commandes.update',$cm->id) }}" method="POST">
+          @csrf
+          @method('PUT')
+     
+          <input type="hidden" name="taille" value="{{ $cm->taille }}">
+          <input type="hidden" name="product_id" value="{{ $cm->product->nom}}">
+          <input type="hidden" name="telephone" value="{{ $cm->telephone }}" >
+          <input type="hidden" name="facebook" value="{{ $cm->facebook }}" >
+          <input type="hidden" name="type" value="3" >
+
+             
+  
+              <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <button type="submit" class="btn btn-warning">Délivrer</button>
+              </div>
+       
+      </form>
+      
+      </td>
+
+
+    </tr> @endforeach
+  </tbody>
+</table>
+</div>
+
+
+
+
+
+<p></p>
+<div class="container">
+  <br>
+  <div class="h3">Commandes livrée</div>
+  <br>
+<table class="table">
+ 
+  <tbody>
+     
+   
+ 
+
+    @foreach ( $comType3 as $cm )
+    <tr>
+      <td>{{$cm->id}}</td>
+
+      <td><img class="img-fluid" width="50" height="50" src="{{$cm->product->photo}}" alt="">
+
+      </td>
+      <td>{{$cm->taille}}</td>
+      <td>{{$cm->product->nom}}</td>
+      <td>{{$cm->telephone}}</td>
+      <td>{{$cm->facebook}}</td>
+      <td>{{$cm->created_at}}</td>
+      <td>
+      
+        <form action="" method="POST">
+          @csrf
+         
+  
+              <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <button type="submit" class="btn btn-danger">retour</button>
+              </div>
+       
+      </form>
+      
+      </td>
+
+
+    </tr> @endforeach
+  </tbody>
+</table>
+</div>
 </body>
 </html>
 

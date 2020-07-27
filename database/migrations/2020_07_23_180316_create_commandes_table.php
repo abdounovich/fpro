@@ -16,7 +16,7 @@ class CreateCommandesTable extends Migration
         Schema::create('commandes', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('telephone');
-            $table->integer('type');
+            $table->integer('type')->default(0);
             $table->string('taille');
             $table->string('facebook');
             $table->integer('product_id')->unsigned();

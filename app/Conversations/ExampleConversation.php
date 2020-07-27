@@ -105,7 +105,7 @@ public function __construct(string $m ,string $f) {
     $c=new Commande();
       $c->product_id=$this->m;;
       $c->telephone=$this->phone;
-      $c->type='1';
+      $c->type='0';
       $c->taille=$this->taille;
       $c->facebook= $this->f;
       $c->save();

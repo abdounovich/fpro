@@ -26,6 +26,9 @@ use BotMan\Drivers\Facebook\Extensions\MediaAttachmentElement;
  
 $botman = resolve('botman');
 
+
+
+
 $botman->hears('GET_STARTED', function ($bot) {
     $bot->typesAndWaits(1);
 

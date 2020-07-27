@@ -1,46 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>JobBoard &mdash; Website Template by Colorlib</title>
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-  <link rel="stylesheet" href="css/custom-bs.css">
-  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-  <link rel="stylesheet" href="css/bootstrap-select.min.css">
-  <link rel="stylesheet" href="fonts/icomoon/style.css">
-  <link rel="stylesheet" href="fonts/line-icons/style.css">
-  <link rel="stylesheet" href="css/owl.carousel.min.css">
-  <link rel="stylesheet" href="css/animate.min.css">
-  <link rel="stylesheet" href="css/quill.snow.css">
-  
-
-  <!-- MAIN CSS -->
-  <link rel="stylesheet" href="css/style.css">    
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 </head>
 <body>
     <section class="site-section">
         <div class="container">
-  
+  <p></p><br/>
           <div class="row mb-5">
             <div class="col-lg-12">
      <form action="/AP"  method="post" role="form" enctype="multipart/form-data" class="p-4 p-md-5 border rounded">
         {{ csrf_field() }}
-        @if(session()->has('status'))
-        <div class="alert alert-info" role="alert">
-            {{session()->get('status')}}
-        </div>
-    @endif
- 
-        <h3 class="text-black mb-5 border-bottom pb-2">ajouter un Produit</h3>
-                
-              
-  
+
                 <div class="form-group">
-                  <label for="nom">Le nom :</label>
-                  <input  name="nom" type="text" class="form-control" id="nom" placeholder="Jony">
+                  <label for="nom"> nom du produit:</label>
+                  <input  name="nom" type="text" class="form-control" id="nom" placeholder="nom du produit">
                 </div>
   
   
@@ -56,33 +36,63 @@
               
 
                   <div class="form-group">
-                    <img class="img-fluid img-thumbnail" id="image" src="images/avatar/avatar.png" alt="" width="200" height="200">
-                
-                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                      <input type="file" name="photo" class="form-control" id="name" value="">
-                      @if($errors->has('image_name'))
-                          <span class="help-block">{{ $errors->first('image_name') }}</span>
-                      @endif
-                  </div>                
+                    <label for="photo">Photo du produit :</label>
+<div class="row">
+  <div class="col-2">                    <img class="img-fluid " id="image" src="https://res.cloudinary.com/ds9qfm1ok/image/upload/v1595881085/gallery-131964752828011266_ko0lhf.png" alt="" width="100" height="100">
+  </div>
+  <div class="col-10">                      <input type="file" name="photo" class="form-control" id="photo" value="">
+  </div>
+</div>
+                    
+                             
                 </div>
              
+
+                <script language="javascript">$('document').ready(function () {
+                  $("#photo").change(function () {
+                      if (this.files && this.files[0]) {
+                          var reader = new FileReader();
+                          reader.onload = function (e) {
+                              $('#image').attr('src', e.target.result);
+                          }
+                          reader.readAsDataURL(this.files[0]);
+                      }
+                  });
+                  });
+              </script>
      
                 <div class="form-group">
-                  <label for="cat">taille :</label>
+                  <label for="cat">Tailles :</label>
+ @php ($lesTailles = ['S','M','L','XL','XXL'])
 
-                  @php ($lesTailles = ['S','M','L','XL','XXL'])
-
-                  @foreach ($lesTailles as $item)
-                  <p></p>
-                <input name="taille{{$item}}" type="text" value="{{$item}}" class="form-control"  placeholder="taille">
-                  <input name="nombre{{$item}}" type="text" value="3" class="form-control" placeholder="nombre"> 
-                  @endforeach
+                 
+                 
+                
+                 
+                  <div class="row"> @foreach ($lesTailles as $item)
+                    <div class="col-1"><input name="taille{{$item}}" type="text" value="{{$item}}" class="form-control"  placeholder="taille" disabled>
+                     <p></p>
+                    <input name="nombre{{$item}}" type="text" value="3" class="form-control" placeholder="nombre"> 
+                    </div>     @endforeach
+                  </div>
+                 
+             
+                 
                  
 
                 </div>
-             
+               <div class="row">
+            <div class="col-12 ">
+              <button type="submit" class="btn btn-block btn-primary btn-md">Ajouter</button>
+
+              
+          
+            </div>
+          </div>
            
           </div>
+
+        
           <div>
        
      
@@ -99,14 +109,7 @@
           </div>
           <div class="row align-items-center mb-12">
             <div class="col-lg-12 ml-auto">
-              <div class="row">
-                <div class="col-12">
-                  <button type="submit" class="btn btn-block btn-primary btn-md">Submit</button>
-  
-                  
-              
-                </div>
-              </div>
+             
             </div>
           </div></form>
         </div>

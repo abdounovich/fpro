@@ -34,6 +34,11 @@ return [
     */
     'verification' => env('FACEBOOK_VERIFICATION'),
 
+
+
+
+
+
     /*
     |--------------------------------------------------------------------------
     | Facebook Start Button Payload

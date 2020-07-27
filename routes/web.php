@@ -24,6 +24,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+
+Route::resource('commandes','CommandeController');
+Route::resource('tailles','TailleController');
+
+
+
 Route::get('test', function () {
     return view('test');
 });
