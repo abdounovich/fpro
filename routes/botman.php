@@ -63,7 +63,7 @@ if($tt<=0){
 
 }else{
     $b= Element::create($pro->nom)
-    ->subtitle($c.' : المقاسات المتوفرة')
+    ->subtitle($c.' : المقاسات المتوفرة '."\n"."3000 دج")
     ->image($im)
     ->addButton(ElementButton::create('شراء هذا المنتج')
         ->payload('p'.$pro->id)
