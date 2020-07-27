@@ -50,7 +50,7 @@ $bot->reply(ButtonTemplate::create('كيف يمكننا خدمتك')
 	    ->type('postback')
 	    ->payload('show_products')
 	)
-	->addButton(ElementButton::create('⁉ استفسار ')
+	->addButton(ElementButton::create('💬 استفسار ')
 	    ->url('http://botman.io/')
 	)
 );
