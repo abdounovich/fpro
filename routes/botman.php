@@ -1,6 +1,7 @@
 <?php
 use App\Taille;
 use App\Product;
+use App\Commande;
 use App\Conversations\ExampleConversation;
 use App\Http\Controllers\BotManController;
 use BotMan\BotMan\Messages\Attachments\Image;
@@ -28,6 +29,56 @@ $botman = resolve('botman');
 
 
 
+
+$botman->hears('GET_STARTED', function ($bot) {
+    $bot->typesAndWaits(1);
+    /* $attachment = new Image('http://smartbots.global/images/resources/smart-bot.gif', [
+        'custom_payload' => true,
+    ]);
+    
+    // Build message object
+    $message = OutgoingMessage::create('This is my text')
+                ->withAttachment($attachment);
+
+    // Reply message object
+    $bot->reply($message); */
+    $user = $bot->getUser();
+// Access first name
+$firstname = $user->getFirstName();
+$lastname = $user->getLastName();
+
+$bot->reply($firstname . "-".$lastname. ' : مرحبا بك 🙋‍♂ ');
+$bot->reply( '☺ تشرفنا زيارتك لصفحة AJMODA  ');
+$bot->reply(ButtonTemplate::create('كيف يمكننا خدمتك')
+	->addButton(ElementButton::create(' 🛍 منتجاتنا ')
+	    ->type('postback')
+	    ->payload('show_products')
+	)
+	->addButton(ElementButton::create('⁉ استفسار ')
+	    ->url('http://botman.io/')
+	)
+);
+});
+
+
+
+
+
+
+
+$botman->hears('show_commandes', function($bot) {
+    $user = $bot->getUser();
+    // Access first name
+    $firstname = $user->getFirstName();
+    $lastname = $user->getLastName();
+    $facebook=$firstname.'-'.$lastname;
+    $commandes = Commande::where('facebook',$facebook)->get();
+    foreach ($commandes as $commande) {
+        $bot->reply($commande->product_id);
+
+    }
+
+});
 $botman->fallback(function($bot) {
     
     $bot->reply('عذرًا ، لم أستطع فهمك 😕. هذه قائمة بالأوامر التي أفهمها: ..');
@@ -106,35 +157,7 @@ $botman->hears('p([0-9]+)', function ($bot, $number) {
 
 
 
-$botman->hears('GET_STARTED', function ($bot) {
-    $bot->typesAndWaits(1);
-    $attachment = new Image('http://smartbots.global/images/resources/smart-bot.gif', [
-        'custom_payload' => true,
-    ]);
-    
-    // Build message object
-    $message = OutgoingMessage::create('This is my text')
-                ->withAttachment($attachment);
 
-    // Reply message object
-    $bot->reply($message);
-    $user = $bot->getUser();
-// Access first name
-$firstname = $user->getFirstName();
-$lastname = $user->getLastName();
-
-$bot->reply($firstname . "-".$lastname. ' : مرحبا بك 🙋‍♂ ');
-$bot->reply( '☺ تشرفنا زيارتك لصفحة AJMODA  ');
-$bot->reply(ButtonTemplate::create('كيف يمكننا خدمتك')
-	->addButton(ElementButton::create(' 🛍 منتجاتنا ')
-	    ->type('postback')
-	    ->payload('show_products')
-	)
-	->addButton(ElementButton::create('⁉ استفسار ')
-	    ->url('http://botman.io/')
-	)
-);
-});
 $botman->hears('Start conversation', BotManController::class.'@startConversation');
 /* $botman->hears('العربية', BotManController::class.'@SetLanguageToAr');
 $botman->hears('francais', BotManController::class.'@SetLanguageToFr');

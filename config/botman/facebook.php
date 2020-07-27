@@ -87,12 +87,11 @@ return [
                         ],
                     
                 
-                [
-                    'type' => 'web_url',
-                    'title' => 'Latest News',
-                    'url' => 'http://botman.io',
-                    'webview_height_ratio' => 'full',
-                ],
+                        [
+                            'title' => ' 🛍 طلبياتي ',
+                            'type' => 'postback',
+                            'payload' => 'show_commandes',
+                        ],
             ],
         ],
     ],
