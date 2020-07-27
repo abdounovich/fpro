@@ -30,7 +30,7 @@ $botman->hears('GET_STARTED', function ($bot) {
     $bot->typesAndWaits(1);
 
 
-    $attachment = new Image('http://smartbots.global/images/resources/smart-bot.gif');
+    $attachment = new Image('https://botman.io/img/logo.png');
 
     // Build message object
     $message = OutgoingMessage::create('This is my text')
