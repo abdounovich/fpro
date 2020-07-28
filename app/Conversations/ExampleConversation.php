@@ -51,9 +51,7 @@ public function __construct(string $m ,string $f) {
     $question = Question::create(' إختر المقاس الذي يناسبك بالضغط على زر من القائمة أسفله ')->addButtons($this->arr);
         $this->ask($question, function (Answer $answer) {
         $this->taille=$answer->getText(); 
-        $this->tb=Taille::where('product_id',$this->m)->where('taille',$this->taille)->first();
-        $this->tbl=Taille::where('product_id',$this->m)->where('taille',$this->taille)
-        ->update(array('nombre' =>  $this->tb->nombre-1));  
+       
         $this->sup=Product::where('id',$this->m)->first();
 
                 // Save result
@@ -109,6 +107,10 @@ public function __construct(string $m ,string $f) {
       $c->taille=$this->taille;
       $c->facebook= $this->f;
       $c->save();
+
+      $this->tb=Taille::where('product_id',$this->m)->where('taille',$this->taille)->first();
+      $this->tbl=Taille::where('product_id',$this->m)->where('taille',$this->taille)
+      ->update(array('nombre' =>  $this->tb->nombre-1));  
       $this->say('عظيم 👏 هذا كل شيء سوف نتصل بكم قريبا... '.$this->firstname);
     }
     public function run()
