@@ -49,11 +49,12 @@ $lastname = $user->getLastName();
 $bot->reply($firstname . "-".$lastname. ' : مرحبا بك 🙋‍♂ ');
 $bot->reply( '☺ تشرفنا زيارتك لصفحة AJMODA  ');
 
-$bot->reply(ButtonTemplate::create('  أنا الشات بوت 🤖 سأتواصل معك تلقائيا كيف يمكنني خدمتك ؟  ')
+$bot->reply(ButtonTemplate::create('  أناالشات بوت 🤖 سأتواصل معك تلقائيا كيف يمكنني خدمتك ؟  ')
 	->addButton(ElementButton::create(' 🛍 منتجاتنا ')
 	    ->type('postback')
 	    ->payload('show_products')
-	)
+    )
+  
 	->addButton(ElementButton::create('💬 استفسار ')
 	    ->url('http://botman.io/')
 	)
@@ -81,7 +82,21 @@ $botman->hears('show_commandes', function($bot) {
 });
 $botman->fallback(function($bot) {
     
-    $bot->reply('عذرًا ، لم أستطع فهمك 😕. هذه قائمة بالأوامر التي أفهمها: ..');
+  
+    $bot->reply(ButtonTemplate::create('عذرًا ، لم أستطع فهمك 😕 '."\n". 'هذه قائمة بالأوامر التي أفهمها:')
+	->addButton(ElementButton::create('🛍 منتجاتنا')
+	    ->type('postback')
+	    ->payload('show_products')
+    )
+    ->addButton(ElementButton::create(' 🛒 طلبياتي ')
+    ->type('postback')
+    ->payload('show_products')
+)
+	->addButton(ElementButton::create('💬 استفسار ')
+	    ->type('postback')
+	    ->payload('show_commandes')
+	)
+);
 });
 $botman->hears('show_products', function($bot) {
    
@@ -114,12 +129,12 @@ if($tt<=0){
 
 }else{
     $b= Element::create($pro->nom)
-    ->subtitle($c.' : المقاسات المتوفرة '."\n"."سعر المنتوج  : 3000 دج")
+    ->subtitle($c.' :المقاسات المتوفرة'."\n".$pro->prix." :سعر المنتوج")
     ->image($im)
-    ->addButton(ElementButton::create('شراء هذا المنتج')
+    ->addButton(ElementButton::create(' 🛒 شراء هذا المنتج')
         ->payload('p'.$pro->id)
         ->type('postback'))
-        ->addButton(ElementButton::create('تكبير الصورة')
+        ->addButton(ElementButton::create('🔍 تكبير الصورة')
 	    ->url($pro->photo));
 	
     

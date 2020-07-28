@@ -11,7 +11,9 @@ use BotMan\BotMan\Messages\Attachments\Image;
 use BotMan\BotMan\Messages\Outgoing\Question;
 use BotMan\BotMan\Messages\Outgoing\Actions\Button;
 use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
+use BotMan\Drivers\Facebook\Extensions\ElementButton;
 use BotMan\BotMan\Messages\Conversations\Conversation;
+use BotMan\Drivers\Facebook\Extensions\ButtonTemplate;
 
 class ExampleConversation extends Conversation
 {
@@ -72,9 +74,8 @@ public function __construct(string $m ,string $f) {
         // Reply message object
       
         $this->bot->reply($this->message);
-        $this->bot->reply('  سعر المنتج:  3000 دج 💵');
-        $this->bot->reply(' 📐 المقاس :'.$this->taille); 
-        $question=Question::create(' : رقم الهاتف ☎ '.$this->phone)->addButtons([
+       
+        $question=Question::create( 'سعر المنتج  💵 : '.$sup->prix."\n".'   المقاس 📐 :' .$this->taille."\n".'   رقم الهاتف ☎ :'.$this->phone)->addButtons([
             Button::create(' ✅ تأكيد الطلبية')->value('yes'),
             Button::create(' ❎ إلغاء الطلب')->value('no'),
         ]);
@@ -111,7 +112,20 @@ public function __construct(string $m ,string $f) {
       $this->tb=Taille::where('product_id',$this->m)->where('taille',$this->taille)->first();
       $this->tbl=Taille::where('product_id',$this->m)->where('taille',$this->taille)
       ->update(array('nombre' =>  $this->tb->nombre-1));  
-      $this->say('عظيم 👏 هذا كل شيء سوف نتصل بكم قريبا... '.$this->firstname);
+      $this->bot->reply(ButtonTemplate::create('عظيم 👏 '.$this->f."\n".'  سوف نتصل بك قريبا ☎  '."\n"."  شكرا لك ☺   ")
+      ->addButton(ElementButton::create('🛍 الشراء من جديد')
+          ->type('postback')
+          ->payload('show_products')
+      )
+      ->addButton(ElementButton::create(' 🛒 طلبياتي ')
+      ->type('postback')
+      ->payload('show_commandes')
+  )
+      ->addButton(ElementButton::create(' 💬 استفسار ')
+          ->type('postback')
+          ->payload('show_commandes')
+      )
+  );
     }
     public function run()
     {

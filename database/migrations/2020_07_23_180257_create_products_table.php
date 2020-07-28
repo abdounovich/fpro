@@ -17,6 +17,7 @@ class CreateProductsTable extends Migration
             $table->increments('id')->unsigned()->unique();
             $table->string('nom');
             $table->string('photo');
+            $table->string('prix');
             $table->Integer('categorie_id')->unsigned();
      
 

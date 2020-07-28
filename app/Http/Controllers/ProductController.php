@@ -58,6 +58,7 @@ class ProductController extends Controller
                 $image_url= Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height"=>$height]);
               $p=new Product();
               $p->nom=$request->nom;
+              $p->prix=$request->prix;
               $p->photo= $image_url;
               $p->categorie_id=$request->categorie_id;
 

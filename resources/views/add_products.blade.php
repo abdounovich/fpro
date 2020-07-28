@@ -23,7 +23,6 @@
                   <input  name="nom" type="text" class="form-control" id="nom" placeholder="nom du produit">
                 </div>
   
-  
                
   
   
@@ -32,7 +31,10 @@
                     <input name="categorie_id" type="text" class="form-control" id="categorie_id" placeholder="categorie">
                   </div>
      
-           
+                  <div class="form-group">
+                    <label for="cat">prix :</label>
+                    <input name="prix" type="text" class="form-control" id="prix" placeholder="3000 da">
+                  </div>
               
 
                   <div class="form-group">
