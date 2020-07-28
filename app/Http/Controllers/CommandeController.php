@@ -104,7 +104,7 @@ class CommandeController extends Controller
     {
         $commande->delete();
   
-        return redirect()->route('/commandes')
+        return redirect('/commandes')
                         ->with('success','commande deleted successfully');
     }
     
