@@ -100,9 +100,9 @@ class CommandeController extends Controller
      * @param  \App\Commande  $commande
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Commande $id)
+    public function destroy(Commande $commande)
     {
-        Commande::where('id', $id)->get()->each->delete();
+        Commande::where('id', $commande)->get()->delete();
 
         return redirect('commandes');
         //
