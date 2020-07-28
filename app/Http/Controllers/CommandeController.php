@@ -102,8 +102,14 @@ class CommandeController extends Controller
      */
     public function destroy(Commande $commande)
     {
+
+       
+    
+        $taille=Taille::where('product_id',$commande->product_id)->where('taille',$commande->taille)->first();
+        $tbl=Taille::where('product_id',$commande->product_id)->where('taille',$commande->taille)
+        ->update(array('nombre' => $taille->nombre+1));  
         $commande->delete();
-  
+ 
         return redirect('/commandes')
                         ->with('success','commande deleted successfully');
     }

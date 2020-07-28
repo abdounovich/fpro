@@ -32,7 +32,8 @@
       <tr>
         <td>{{$p->id}}</td>
 
-        <td>          <img class="img-fluid" width="200" height="200" src="{{$p->photo}}" alt="">
+        <td><img class="img-fluid" width="200" height="200" src="{{$p->photo}}" alt="">
+         <div class="h2">{{$p->nom}}</div>
 
         </td>
 
@@ -40,10 +41,10 @@
       
       
    
-        <td> <ul>  @foreach ($p->taille as $t)<li>{{ $t }} @endforeach</ul></td> 
-        
+        <td> <ul>  @foreach ($p->taille as $t)<li>{{  $t->taille }} @endforeach</ul></td> 
        
-        <td>{{$p->nom}}</td>
+          <td> <ul>  @foreach ($p->taille as $t)<li>{{  $t->nombre }} @endforeach</ul></td> 
+    
  
 
       </tr> @endforeach
