@@ -15,6 +15,11 @@
   <br>
   <div class="h3">Commande en attente de confirmation </div>
   <br>
+  @if ($message = Session::get('success'))
+  <div class="alert alert-success">
+      <p>{{ $message }}</p>
+  </div>
+@endif
   <table class="table">
     <thead>
       <tr>
