@@ -66,7 +66,7 @@
                 
                   <form action="{{ route('commandes.destroy',$cm->id) }}" method="POST">
    
-    
+                   
    
                     @csrf
                     @method('DELETE')

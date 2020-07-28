@@ -102,10 +102,10 @@ class CommandeController extends Controller
      */
     public function destroy(Commande $commande)
     {
-     
-        Commande::find($commande)->delete();
-
-        return redirect('commandes');
-        //
+        $commande->delete();
+  
+        return redirect()->route('commandes')
+                        ->with('success','commande deleted successfully');
     }
+    
 }
