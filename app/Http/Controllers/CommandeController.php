@@ -100,8 +100,10 @@ class CommandeController extends Controller
      * @param  \App\Commande  $commande
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Commande $commande)
+    public function destroy(Commande $id)
     {
+        $data = Commande::findOrFail($id);
+$data->delete();
         //
     }
 }

@@ -64,7 +64,15 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                   <button type="submit" class="btn btn-success">Confirmer </button>
                 
-                  <button type="submit" class="btn btn-danger">Supprimer </button>
+                  <form action="{{ route('commandes.destroy',$cm->id) }}" method="POST">
+   
+    
+   
+                    @csrf
+                    @method('DELETE')
+      
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
                 </div>
          
         </form>
