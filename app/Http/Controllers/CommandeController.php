@@ -102,7 +102,8 @@ class CommandeController extends Controller
      */
     public function destroy(Commande $id)
     {
-        $id->delete();     //ERROR HERE
+        Commande::where('id', $id)->get()->each->delete();
+
         return redirect('commandes');
         //
     }
