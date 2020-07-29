@@ -80,9 +80,9 @@ if ($total==0) {
 }
 else{
     $ray=[];
+    $bot->reply(' لديك : '.$total.' طلبية ');
     foreach ($commandes as $commande) {
         
-        $bot->reply(' لديك : '.$total.' طلبية ');
 
         $b= Element::create($commande->product->nom)
         ->subtitle('السعر : '.$commande->product->prix."\n".$commande->taille.' : المقاس  ')
