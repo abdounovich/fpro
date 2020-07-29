@@ -74,10 +74,35 @@ $botman->hears('show_commandes', function($bot) {
     $lastname = $user->getLastName();
     $facebook=$firstname.'-'.$lastname;
     $commandes = Commande::where('facebook',$facebook)->get();
+    $total=Commande::where('facebook',$facebook)->count();
+if ($total==0) {
+  $bot->reply("عفوا لا توجد أي طلبية مسجلة بإسمك");
+}
+else{
+    $ray=[];
     foreach ($commandes as $commande) {
-        $bot->reply($commande->telephone);
+        
+        $bot->reply(' لديك : '.$total.' طلبية ');
+
+        $b= Element::create($commande->product->nom)
+        ->subtitle('السعر : '.$commande->product->prix."\n".$commande->taille.' : المقاس  ')
+        ->image($commande->product->photo)
+        ->addButton(ElementButton::create(' إلغاء الطلبية')
+            ->payload('annuler'.$commande->id)
+            ->type('postback'));
+        
+           $ray[]=$b;
+
 
     }
+    $n=GenericTemplate::create()
+->addImageAspectRatio(GenericTemplate::RATIO_SQUARE)
+->addElements($ray);
+
+
+
+    $bot->reply($n);
+    $ray=[];}
 
 });
 $botman->fallback(function($bot) {
@@ -90,7 +115,7 @@ $botman->fallback(function($bot) {
     )
     ->addButton(ElementButton::create(' 🛒 طلبياتي ')
     ->type('postback')
-    ->payload('show_products')
+    ->payload('show_commandes')
 )
 	->addButton(ElementButton::create('💬 استفسار ')
 	    ->type('postback')
@@ -166,6 +191,16 @@ $botman->hears('p([0-9]+)', function ($bot, $number) {
     $lastname = $user->getLastName();
     $facebook=$firstname.'-'.$lastname;
     $bot->startConversation(new ExampleConversation($number,$facebook));
+
+});
+
+$botman->hears('annuler([0-9]+)', function ($bot,$number) {
+   $commande=Commande::where('id',$number)->first();
+    $taille=Taille::where('product_id',$commande->product_id)->where('taille',$commande->taille)->first();
+        $tbl=Taille::where('product_id',$commande->product_id)->where('taille',$commande->taille)
+        ->update(array('nombre' => $taille->nombre+1));  
+        $commande->delete();
+        $bot->reply('تم إلغاء الطلبية بنجاح');
 
 });
 

@@ -75,7 +75,7 @@ public function __construct(string $m ,string $f) {
       
         $this->bot->reply($this->message);
        
-        $question=Question::create( 'سعر المنتج  💵 : '.$sup->prix."\n".'   المقاس 📐 :' .$this->taille."\n".'   رقم الهاتف ☎ :'.$this->phone)->addButtons([
+        $question=Question::create( 'سعر المنتج  💵 : '.$this->sup->prix."\n".'   المقاس 📐 :' .$this->taille."\n".'   رقم الهاتف ☎ :'.$this->phone)->addButtons([
             Button::create(' ✅ تأكيد الطلبية')->value('yes'),
             Button::create(' ❎ إلغاء الطلب')->value('no'),
         ]);
@@ -83,6 +83,8 @@ public function __construct(string $m ,string $f) {
 
             
             if($answer->getValue() === 'yes') {
+
+                $this->bot->typesAndWaits(1);
                 $this->add();
 
             }
