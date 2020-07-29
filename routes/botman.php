@@ -50,10 +50,14 @@ $bot->reply($firstname . "-".$lastname. ' : مرحبا بك 🙋‍♂ ');
 $bot->reply( '☺ تشرفنا زيارتك لصفحة AJMODA  ');
 
 $bot->reply(ButtonTemplate::create('  أناالشات بوت 🤖 سأتواصل معك تلقائيا كيف يمكنني خدمتك ؟  ')
-	->addButton(ElementButton::create(' 🛍 منتجاتنا ')
-	    ->type('postback')
-	    ->payload('show_products')
-    )
+->addButton(ElementButton::create('🤔 طريقة الشراء ')
+->type('postback')
+->payload('steps')
+)
+    ->addButton(ElementButton::create(' 🛍 منتجاتنا ')
+    ->type('postback')
+    ->payload('show_products')
+)
   
 	->addButton(ElementButton::create('💬 استفسار ')
 	    ->url('http://botman.io/')
@@ -117,7 +121,7 @@ $botman->fallback(function($bot) {
 	    ->type('postback')
 	    ->payload('show_commandes')
     )
-    ->addButton(ElementButton::create('💬 طريقة الشراء ')
+    ->addButton(ElementButton::create('🤔 طريقة الشراء ')
 	    ->type('postback')
 	    ->payload('steps')
 	)
@@ -143,15 +147,11 @@ $bot->reply("4⃣ :  تحقق   من   المعلومات  السابقة   \n  
 
 
 $bot->reply(ButtonTemplate::create('بعد إطلاعك على هذه المراحل البسيطة يمكنك البدأ في التسوق بسهولة  وسرعة وأمان ')
-->addButton(ElementButton::create('🛍 منتجاتنا')
+->addButton(ElementButton::create('🛍 إبدأ التسوق الآن')
     ->type('postback')
     ->payload('show_products')
 )
 
-->addButton(ElementButton::create('🧾 طريقة الشراء ')
-    ->type('postback')
-    ->payload('steps')
-)
 );
 
 
