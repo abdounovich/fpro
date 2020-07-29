@@ -83,7 +83,6 @@ else{
     $bot->reply(' لديك : '.$total.' طلبية ');
     foreach ($commandes as $commande) {
         
-
         $b= Element::create($commande->product->nom)
         ->subtitle('السعر : '.$commande->product->prix."\n".$commande->taille.' : المقاس  ')
         ->image($commande->product->photo)
