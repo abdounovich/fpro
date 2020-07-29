@@ -40,7 +40,7 @@ public function __construct(string $m ,string $f) {
        
            
 
-        $this->tbl=Taille::where('product_id', $this->m)->get();
+        $this->tbl=Taille::where('product_id', $this->m)->orderBy('created_at', 'desc')->get();
 
 
         foreach ($this->tbl as $t ) {
