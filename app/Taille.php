@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 
 class Taille extends Model
-{    public $timestamps = false;
+{    
      protected $fillable = ['produit_id'];
 
     public function product()
