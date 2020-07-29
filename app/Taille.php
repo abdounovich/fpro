@@ -14,8 +14,5 @@ class Taille extends Model
         return $this->belongsTo(Product::class);
     }
 
-    public function setUpdatedAtAttribute($value)
-    {
-        // to Disable updated_at
-    }
+ 
 }
