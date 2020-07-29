@@ -97,7 +97,7 @@ else{
            $ray[]=$b;
 
 
-    }
+    
     $n=GenericTemplate::create()
 ->addImageAspectRatio(GenericTemplate::RATIO_SQUARE)
 ->addElements($ray);
@@ -105,7 +105,7 @@ else{
 
 
     $bot->reply($n);
-    $ray=[];}
+    $ray=[];}}
 
 });
 $botman->fallback(function($bot) {
