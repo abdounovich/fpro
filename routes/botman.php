@@ -138,7 +138,7 @@ else{
 
 foreach($prod as $pro){
 
-    $od = Taille::where('product_id',$pro->id)->orderBy('id', 'DESC')->get();
+    $od = Taille::where('product_id',$pro->id)->orderBy('id', 'ASC')->get();
 foreach ($od as $ooo ) {
     $tt=$tt+$ooo->nombre;
     if ($ooo->nombre>0) {
