@@ -74,8 +74,9 @@ public function __construct(string $m ,string $f) {
         // Reply message object
       
         $this->bot->reply($this->message);
-       
-        $question=Question::create( 'سعر المنتج  💵 : '.$this->sup->prix."\n".'   المقاس 📐 :' .$this->taille."\n".'   رقم الهاتف ☎ :'.$this->phone)->addButtons([
+        $this->bot->reply(' المقاس 📐 :' .$this->taille);
+        $this->bot->reply(' رقم الهاتف ☎ :'.$this->phone);
+        $question=Question::create( 'سعر المنتج  💵 : '.$this->sup->prix)->addButtons([
             Button::create(' ✅ تأكيد الطلبية')->value('yes'),
             Button::create(' ❎ إلغاء الطلب')->value('no'),
         ]);

@@ -112,23 +112,60 @@ $botman->fallback(function($bot) {
 	    ->type('postback')
 	    ->payload('show_products')
     )
-    ->addButton(ElementButton::create(' 🛒 طلبياتي ')
-    ->type('postback')
-    ->payload('show_commandes')
-)
+ 
 	->addButton(ElementButton::create('💬 استفسار ')
 	    ->type('postback')
 	    ->payload('show_commandes')
+    )
+    ->addButton(ElementButton::create('💬 طريقة الشراء ')
+	    ->type('postback')
+	    ->payload('steps')
 	)
 );
 });
-$botman->hears('show_products', function($bot) {
+$botman->hears('steps', function($bot) {
+    $bot->typesAndWaits(1);
+
+$bot->reply('تتم عملية الشراء من هنا خلال أربعة مراحل بسيطة : ');
+$bot->typesAndWaits(1);
+
+$bot->reply('1⃣ :  اختر المنتج  واللون واضغط على زر شراء الموجود أسفل كل صورة ');
+$bot->typesAndWaits(1);
+
+$bot->reply('2⃣ : إختر المقاس المناسب  لك بالضغط على أحد الأزرار من  القائمة');
+$bot->typesAndWaits(1);
+
+$bot->reply('3⃣ :  أدخل  رقم  هاتفك لكي نتصل بك من أجل تأكيد طلبيتك ');
+$bot->typesAndWaits(1);
+
+$bot->reply("4⃣ :  تحقق   من   المعلومات  السابقة   \n  ثم اضغط على زر تأكيد الطلبية  ");
+
+
+
+$bot->reply(ButtonTemplate::create('بعد إطلاعك على هذه المراحل البسيطة يمكنك البدأ في التسوق بسهولة  وسرعة وأمان ')
+->addButton(ElementButton::create('🛍 منتجاتنا')
+    ->type('postback')
+    ->payload('show_products')
+)
+
+->addButton(ElementButton::create('🧾 طريقة الشراء ')
+    ->type('postback')
+    ->payload('steps')
+)
+);
+
+
+
+
+
+});
+    $botman->hears('show_products', function($bot) {
    
 $a=[];
 $c='';
 $tt=0;
 $total=Product::all()->count();
-$bot->reply('هاذه قائمة منتجاتنا نتمنى أن تنال إعجابكم');
+$bot->reply('😁 هاذه قائمة منتجاتنا نتمنى أن تنال إعجابك 👌 :');
 for ($i=1; $i<=$total ; $i++) { 
 $prod = Product::where('categorie_id',$i)->get();
 if($prod->count() == 0){
@@ -152,13 +189,17 @@ $im=$pro->photo;
 if($tt<=0){
 
 }else{
-    $b= Element::create($pro->nom)
-    ->subtitle($c.' :المقاسات المتوفرة'."\n"."DA ".$pro->prix." :سعر المنتوج")
+    $lin="---------------------------------------";
+    $da="دج";
+   $price="  سعر المنتوج  💵 :         ".$pro->prix." ".$da;
+   $talle=$c.":  ✌ المقاسات المتوفرة";
+    $b= Element::create($pro->nom."\n".$lin)
+    ->subtitle($price."\n".$talle)
     ->image($im)
-    ->addButton(ElementButton::create(' 🛒 شراء هذا المنتج')
+    ->addButton(ElementButton::create('   🛒  شراء هذا المنتج  ')
         ->payload('p'.$pro->id)
         ->type('postback'))
-        ->addButton(ElementButton::create('🔍 تكبير الصورة')
+        ->addButton(ElementButton::create('   🔍 تكبير الصورة  ')
 	    ->url($pro->photo));
 	
     
