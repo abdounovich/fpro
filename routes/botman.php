@@ -153,7 +153,7 @@ if($tt<=0){
 
 }else{
     $b= Element::create($pro->nom)
-    ->subtitle($c.' :المقاسات المتوفرة'."\n"."دج ".$pro->prix." :سعر المنتوج")
+    ->subtitle($c.' :المقاسات المتوفرة'."\n"."DA ".$pro->prix." :سعر المنتوج")
     ->image($im)
     ->addButton(ElementButton::create(' 🛒 شراء هذا المنتج')
         ->payload('p'.$pro->id)
