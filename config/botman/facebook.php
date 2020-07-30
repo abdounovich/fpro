@@ -116,7 +116,7 @@ return [
                             'title' => ' 👨‍🏫 شرح طريقة الشراء  ',
                             'type' => 'postback',
                             'payload' => 'steps',
-                           'webview_height_ratio'=>full
+                           'webview_height_ratio'=>'full'
                         ]]],
                       
                        
