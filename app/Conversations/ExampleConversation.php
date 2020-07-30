@@ -50,7 +50,7 @@ public function __construct(string $m ,string $f) {
            
             $this->arr[]=Button::create($t->taille)->value($t->taille);
            }  } 
-           $this->bot->reply(' 😍 أحسنت الإختيار ');
+           $this->bot->reply('  أحسنت الإختيار 😍 ');
 
     $question = Question::create(' إختر المقاس المناسب بالضغط على زر من القائمة أسفله ')->addButtons($this->arr);
         $this->ask($question, function (Answer $answer) {
@@ -59,10 +59,12 @@ public function __construct(string $m ,string $f) {
         $this->sup=Product::where('id',$this->m)->first();
 
     
-
+        $this->bot->reply('  ... جيد جدا  👌 ');
         $this->ask('....  من فضلك أدخل رقم هاتفك ☎ ', function(Answer $answer) {
                 // Save result
         $this->phone = $answer->getText();
+        $this->bot->reply('   ☺ المرحلة الأخيرة  ');
+        $this->bot->typesAndWaits(1);
         $this->bot->reply(' 🛒 تأكيد الطلبية');
         $this->attachment = new Image($this->sup->photo, [
             'custom_payload' => true,
@@ -75,8 +77,8 @@ public function __construct(string $m ,string $f) {
         // Reply message object
       
         $this->bot->reply($this->message);
-        $this->bot->reply(' المقاس 📐 :' .$this->taille);
-        $this->bot->reply(' رقم الهاتف ☎ :'.$this->phone);
+        $this->bot->reply(' المقاس :' .$this->taille);
+        $this->bot->reply('  ☎ :'.$this->phone);
         $question=Question::create( 'سعر المنتج  💵 : '.$this->sup->prix)->addButtons([
             Button::create(' ✅ تأكيد الطلبية')->value('yes'),
             Button::create(' ❎ إلغاء الطلب')->value('no'),
