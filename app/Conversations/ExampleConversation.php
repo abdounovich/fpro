@@ -56,10 +56,9 @@ public function __construct(string $m ,string $f) {
        
         $this->sup=Product::where('id',$this->m)->first();
 
-                // Save result
-        $this->bot->reply('تبقت مرحلة أخيرة فقط');
+    
 
-        $this->ask(' من فضلك أدخل رقم هاتفك', function(Answer $answer) {
+        $this->ask('⌨   من فضلك أدخل رقم هاتفك ☎ ', function(Answer $answer) {
                 // Save result
         $this->phone = $answer->getText();
         $this->bot->reply(' 🛒 تأكيد الطلبية');
