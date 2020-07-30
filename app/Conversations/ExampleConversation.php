@@ -52,7 +52,7 @@ public function __construct(string $m ,string $f) {
            }  } 
            $this->bot->reply('  أحسنت الإختيار 😍 ');
 
-    $question = Question::create(' إختر المقاس المناسب بالضغط على زر من القائمة أسفله ')->addButtons($this->arr);
+    $question = Question::create(' إختر المقاس المناسب بالضغط على زر من القائمة أسفله :  ')->addButtons($this->arr);
         $this->ask($question, function (Answer $answer) {
         $this->taille=$answer->getText(); 
        
@@ -60,7 +60,7 @@ public function __construct(string $m ,string $f) {
 
     
         $this->bot->reply('  جيد جدا  👌 ');
-        $this->ask(': من فضلك أدخل رقم هاتفك ☎ ', function(Answer $answer) {
+        $this->ask(' من فضلك أدخل رقم هاتفك  ☎ : ', function(Answer $answer) {
                 // Save result
         $this->phone = $answer->getText();
         $this->bot->reply('   ☺ المرحلة الأخيرة  ');
@@ -77,9 +77,9 @@ public function __construct(string $m ,string $f) {
         // Reply message object
       
         $this->bot->reply($this->message);
-        $this->bot->reply(' المقاس :' .$this->taille);
-        $this->bot->reply('  ☎ :'.$this->phone);
-        $question=Question::create( 'سعر المنتج  💵 : '.$this->sup->prix)->addButtons([
+        $this->bot->reply(' المقاس : ' .$this->taille);
+        $this->bot->reply('  ☎ : '.$this->phone);
+        $question=Question::create( 'السعر    💵 : '.$this->sup->prix)->addButtons([
             Button::create(' ✅ تأكيد الطلبية')->value('yes'),
             Button::create(' ❎ إلغاء الطلب')->value('no'),
         ]);
