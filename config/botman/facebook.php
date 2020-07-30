@@ -106,7 +106,7 @@ return [
                     'title' => 'My Account',
                     'type' => 'nested',
                     'call_to_actions' => [
-                        
+                        [
                             'title' => 'Pay Bill',
                             'type' => 'postback',
                             'payload' => 'PAYBILL_PAYLOAD',
@@ -115,7 +115,7 @@ return [
                             'title' => ' 👨‍🏫 شرح طريقة الشراء  ',
                             'type' => 'postback',
                             'payload' => 'steps',
-                        ]],
+                        ]]],
                       
                        
             ],
