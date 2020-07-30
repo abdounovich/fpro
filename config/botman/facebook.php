@@ -106,6 +106,20 @@ return [
                             'type' => 'postback',
                             'payload' => 'steps',
                         ],
+                      
+                      
+                      
+                      
+                      
+                        [
+                            'title' => ' 💬 استفسار ',
+                            'type' => 'web_url',
+                            'url' => 'https://www.messenger.com/t/merahi.adjalile',
+                            'webview_height_ratio' =>'full'
+                        ],
+
+
+
             ],
         ],
     ],
