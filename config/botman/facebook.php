@@ -95,12 +95,6 @@ return [
                             'payload' => 'show_products',
                         ],
                     
-                
-                        [
-                            'title' => ' 🛒 طلبياتي ',
-                            'type' => 'postback',
-                            'payload' => 'show_commandes',
-                        ],
                       
 
                         'title' => ' 💬 استفسار',
@@ -118,6 +112,13 @@ return [
                                 'type' => 'postback',
                                 'payload' => 'steps',
                             ],
+                            
+                
+                        [
+                            'title' => ' 🛒 طلبياتي ',
+                            'type' => 'postback',
+                            'payload' => 'show_commandes',
+                        ],
                         ],
                        
 
