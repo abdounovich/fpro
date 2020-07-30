@@ -92,8 +92,21 @@ public function __construct(string $m ,string $f) {
                 $this->add();
 
             }
-            else{ $this->bot->reply('لقد تم إلغاء طلبك ');
-                return true;}
+            else{  $this->bot->reply(ButtonTemplate::create('تم إلغاء طلبك بنجاح ')
+                ->addButton(ElementButton::create('🛍 الشراء من جديد')
+                    ->type('postback')
+                    ->payload('show_products')
+                )
+                ->addButton(ElementButton::create(' 🛒 طلبياتي ')
+                ->type('postback')
+                ->payload('show_commandes')
+            )
+                ->addButton(ElementButton::create(' 💬 استفسار ')
+                    ->type('postback')
+                    ->payload('show_commandes')
+                )
+            );
+                }
         });
     
        
