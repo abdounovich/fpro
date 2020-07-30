@@ -50,7 +50,9 @@ public function __construct(string $m ,string $f) {
            
             $this->arr[]=Button::create($t->taille)->value($t->taille);
            }  } 
-    $question = Question::create(' إختر المقاس الذي يناسبك بالضغط على زر من القائمة أسفله ')->addButtons($this->arr);
+           $this->bot->reply(' 😍 أحسنت الإختيار ');
+
+    $question = Question::create(' إختر المقاس المناسب بالضغط على زر من القائمة أسفله ')->addButtons($this->arr);
         $this->ask($question, function (Answer $answer) {
         $this->taille=$answer->getText(); 
        
@@ -58,7 +60,7 @@ public function __construct(string $m ,string $f) {
 
     
 
-        $this->ask('⌨   من فضلك أدخل رقم هاتفك ☎ ', function(Answer $answer) {
+        $this->ask('....  من فضلك أدخل رقم هاتفك ☎ ', function(Answer $answer) {
                 // Save result
         $this->phone = $answer->getText();
         $this->bot->reply(' 🛒 تأكيد الطلبية');
