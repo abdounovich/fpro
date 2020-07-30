@@ -33,7 +33,7 @@ $botman->hears('GET_STARTED', function ($bot) {
     $bot->typesAndWaits(1);
 
 
-    $attachment = new Image('https://i.pinimg.com/originals/7d/9b/1d/7d9b1d662b28cd365b33a01a3d0288e1.gif');
+    $attachment = new Image('https://res.cloudinary.com/ds9qfm1ok/image/upload/v1596142524/bot-new-0_clabyz.png');
 
     // Build message object
     $message = OutgoingMessage::create('This is my text')
