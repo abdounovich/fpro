@@ -103,18 +103,20 @@ return [
                         ],
                         [
 
-                    'title' => 'My Account',
+                    'title' => ' 💬 استفسار ',
                     'type' => 'nested',
                     'call_to_actions' => [
                         [
-                            'title' => 'Pay Bill',
-                            'type' => 'postback',
-                            'payload' => 'PAYBILL_PAYLOAD',
+
+                            'title' => 'تواصل مع المبرمج',
+                            'type' => 'web_url',
+                            'url' => 'https://www.messenger.com/t/merahi.adjalile',
                         ],
                   [
                             'title' => ' 👨‍🏫 شرح طريقة الشراء  ',
                             'type' => 'postback',
                             'payload' => 'steps',
+                           'webview_height_ratio'=>full
                         ]]],
                       
                        
