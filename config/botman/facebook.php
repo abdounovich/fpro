@@ -59,9 +59,13 @@ return [
     */
     'greeting_text' => [
         'greeting' => [
+
+
             [
+        
+            
                 'locale' => 'default',
-                'text' => 'Hello!',
+                'text' => ' إضغط على الزر أسفله لبدأ المحادثة ! {{user_full_name}} مرحبا بك  ',
             ],
             [
                 'locale' => 'en_US',
@@ -96,6 +100,11 @@ return [
                             'title' => ' 🛒 طلبياتي ',
                             'type' => 'postback',
                             'payload' => 'show_commandes',
+                        ],
+                        [
+                            'title' => ' 👨‍🏫 شرح طريقة الشراء  ',
+                            'type' => 'postback',
+                            'payload' => 'steps',
                         ],
             ],
         ],
