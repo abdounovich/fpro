@@ -117,9 +117,10 @@ $botman->fallback(function($bot) {
 	    ->payload('show_products')
     )
  
-	->addButton(ElementButton::create('💬 استفسار ')
-	    ->type('postback')
-	    ->payload('show_commandes')
+	
+    ->addButton(ElementButton::create('💬 استفسار ')
+    ->url('https://www.messenger.com/t/merahi.adjalile')
+
     )
     ->addButton(ElementButton::create('🤔 طريقة الشراء ')
 	    ->type('postback')
