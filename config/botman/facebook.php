@@ -101,22 +101,25 @@ return [
                             'type' => 'postback',
                             'payload' => 'show_commandes',
                         ],
-                        [
-                            'title' => ' 👨‍🏫 شرح طريقة الشراء  ',
-                            'type' => 'postback',
-                            'payload' => 'steps',
+                      
+
+                        'title' => ' 💬 استفسار',
+                        'type' => 'nested',
+                        'call_to_actions' => [
+                            [
+                                'title' => 'تواصل مع المبرمج',
+                                'type' => 'web_url',
+                                'url' => 'https://www.messenger.com/t/merahi.adjalile',
+                                'webview_height_ratio' =>'full'
+
+                            ],
+                            [
+                                'title' => ' 👨‍🏫 شرح طريقة الشراء  ',
+                                'type' => 'postback',
+                                'payload' => 'steps',
+                            ],
                         ],
-                      
-                      
-                      
-                      
-                      
-                        [
-                            'title' => ' 💬 استفسار ',
-                            'type' => 'web_url',
-                            'url' => 'https://www.messenger.com/t/merahi.adjalile',
-                            'webview_height_ratio' =>'full'
-                        ],
+                       
 
 
 
