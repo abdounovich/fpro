@@ -59,8 +59,8 @@ public function __construct(string $m ,string $f) {
         $this->sup=Product::where('id',$this->m)->first();
 
     
-        $this->bot->reply('  ... جيد جدا  👌 ');
-        $this->ask('....  من فضلك أدخل رقم هاتفك ☎ ', function(Answer $answer) {
+        $this->bot->reply('  جيد جدا  👌 ');
+        $this->ask(': من فضلك أدخل رقم هاتفك ☎ ', function(Answer $answer) {
                 // Save result
         $this->phone = $answer->getText();
         $this->bot->reply('   ☺ المرحلة الأخيرة  ');
