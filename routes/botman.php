@@ -60,7 +60,7 @@ $bot->reply(ButtonTemplate::create('  أنا الشات بوت 🤖 سأتواص
 )
   
 	->addButton(ElementButton::create('💬 استفسار ')
-	    ->url('http://botman.io/')
+	    ->url('https://www.messenger.com/t/merahi.adjalile')
 	)
 );
 });
