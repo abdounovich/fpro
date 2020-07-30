@@ -89,14 +89,6 @@ return [
             'composer_input_disabled' => 'false',
             'call_to_actions' => [
              
-                        [
-                            'title' => ' 🛍 منتجاتنا ',
-                            'type' => 'postback',
-                            'payload' => 'show_products',
-                        ],
-                    
-                      
-
                         'title' => ' 💬 استفسار',
                         'type' => 'nested',
                         'call_to_actions' => [
