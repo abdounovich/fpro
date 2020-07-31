@@ -127,7 +127,7 @@
           <input type="hidden" name="product_id" value="{{ $cm->product->nom}}">
           <input type="hidden" name="telephone" value="{{ $cm->telephone }}" >
           <input type="hidden" name="facebook" value="{{ $cm->facebook }}" >
-          <input type="hidden" name="type" value="3" >
+          <input type="hidden" name="type" value="1" >
 
              
   
