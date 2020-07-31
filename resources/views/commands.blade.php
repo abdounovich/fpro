@@ -64,11 +64,11 @@
             <input type="hidden" name="telephone" value="{{ $cm->telephone }}" class="form-control" placeholder="Name">
             <input type="hidden" name="facebook" value="{{ $cm->facebook }}" class="form-control" placeholder="Name">
             <input type="hidden" name="type" value="2" class="form-control" placeholder="Name">
+            <button type="submit" class="btn btn-success">Confirmer </button>
 
           </form>
     <p></p>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                  <button type="submit" class="btn btn-success">Confirmer </button>
                 
                   <form action="{{ route('commandes.destroy',$cm->id) }}" method="POST">
    
