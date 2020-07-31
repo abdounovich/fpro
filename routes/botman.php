@@ -191,11 +191,10 @@ $im=$pro->photo;
 if($tt<=0){
 
 }else{
-    $lin="--------------------";
     $da="دج";
    $price="  سعر المنتوج  💵 :         ".$pro->prix." ".$da;
    $talle=$c.":  ✌ المقاسات المتوفرة";
-    $b= Element::create($pro->nom."\n".$lin)
+    $b= Element::create($pro->nom)
     ->subtitle($price."\n".$talle)
     ->image($im)
     ->addButton(ElementButton::create('   🛒  شراء هذا المنتج  ')
