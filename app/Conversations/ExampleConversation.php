@@ -55,7 +55,7 @@ public function __construct(string $m ,string $f) {
     $question = Question::create(' إختر المقاس المناسب بالضغط على زر من القائمة أسفله :  ')->addButtons($this->arr);
         $this->ask($question, function (Answer $answer) {
         $this->taille=$answer->getText(); 
-       
+       if( $this->taille==='S' OR $this->taille==='M' OR $this->taille==='L' OR $this->taille==='XL' OR $this->taille==='XXL'){
         $this->sup=Product::where('id',$this->m)->first();
 
     
@@ -92,7 +92,7 @@ public function __construct(string $m ,string $f) {
                 $this->add();
 
             }
-            else{  $this->bot->reply(ButtonTemplate::create('تم إلغاء طلبك بنجاح ')
+            elseif($answer->getValue() === 'no'){  $this->bot->reply(ButtonTemplate::create('تم إلغاء طلبك بنجاح ')
                 ->addButton(ElementButton::create('🛍 الشراء من جديد')
                     ->type('postback')
                     ->payload('show_products')
@@ -112,7 +112,13 @@ public function __construct(string $m ,string $f) {
        
                
             }); 
-    });
+    
+    
+        }
+        else {$this->bot->reply('خطأ... يرجى الإختيار من القائمة');
+            $this->bot->reply('سيتم إعادة توجيهك');
+            $this->askFirstname();}
+        });
         
     
     }
