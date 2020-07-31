@@ -66,7 +66,7 @@
             <input type="hidden" name="type" value="2" class="form-control" placeholder="Name">
 
           </form>
-    
+    <p></p>
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                   <button type="submit" class="btn btn-success">Confirmer </button>
                 
