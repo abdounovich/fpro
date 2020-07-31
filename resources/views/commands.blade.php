@@ -32,6 +32,7 @@
         <th>Facebook</th>
         <th>Date</th>
         <th></th>
+        <th></th>
 
       </tr>
     </thead>
@@ -67,7 +68,7 @@
             <button type="submit" class="btn btn-success">Confirmer </button>
 
           </form>
-  
+        </td><td>
                 
                   <form action="{{ route('commandes.destroy',$cm->id) }}" method="POST">
    
