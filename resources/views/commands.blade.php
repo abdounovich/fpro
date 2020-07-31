@@ -127,7 +127,7 @@
           <input type="hidden" name="product_id" value="{{ $cm->product->nom}}">
           <input type="hidden" name="telephone" value="{{ $cm->telephone }}" >
           <input type="hidden" name="facebook" value="{{ $cm->facebook }}" >
-          <input type="hidden" name="type" value="1" >
+          <input type="hidden" name="type" value="3" >
 
              
   
@@ -175,16 +175,23 @@
       <td>{{$cm->created_at}}</td>
       <td>
       
-        <form action="" method="POST">
+        <form action="{{ route('commandes.update',$cm->id) }}" method="POST">
           @csrf
-         
+          @method('PUT')
+     
+          <input type="hidden" name="taille" value="{{ $cm->taille }}">
+          <input type="hidden" name="product_id" value="{{ $cm->product->nom}}">
+          <input type="hidden" name="telephone" value="{{ $cm->telephone }}" >
+          <input type="hidden" name="facebook" value="{{ $cm->facebook }}" >
+          <input type="hidden" name="type" value="1" >
+
+             
   
               <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-danger">retour</button>
+                <button type="submit" class="btn btn-warning">retour au stock</button>
               </div>
        
       </form>
-      
       </td>
 
 
