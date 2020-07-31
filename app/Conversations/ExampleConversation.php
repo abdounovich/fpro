@@ -60,7 +60,6 @@ public function __construct(string $m ,string $f) {
         $this->bot->reply('  جيد جدا  👌 ');
         $this->askPhone();}
         else {$this->bot->reply('خطأ... يرجى الإختيار من القائمة');
-            $this->bot->reply('سيتم إعادة توجيهك');
             $this->askFirstname();}
 
         
