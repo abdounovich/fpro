@@ -193,7 +193,7 @@ if($tt<=0){
 }else{
     $da="دج";
    $price="  سعر المنتوج  💵 :         ".$pro->prix." ".$da;
-   $talle=$c.":  ✌ المقاسات المتوفرة";
+   $talle=$c.":✌ المقاس المتوفر";
     $b= Element::create($pro->nom)
     ->subtitle($price."\n".$talle)
     ->image($im)
