@@ -65,7 +65,7 @@
             <input type="hidden" name="telephone" value="{{ $cm->telephone }}" class="form-control" placeholder="Name">
             <input type="hidden" name="facebook" value="{{ $cm->facebook }}" class="form-control" placeholder="Name">
             <input type="hidden" name="type" value="2" class="form-control" placeholder="Name">
-            <button type="submit" class="btn btn-success">Confirmer </button>
+            <button type="submit" class="btn btn-success">Ok</button>
 
           </form>
         </td><td>
@@ -77,7 +77,7 @@
                     @csrf
                     @method('DELETE')
 
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger">X</button>
                 
          
         </form>
