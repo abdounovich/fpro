@@ -130,13 +130,13 @@
 
              
   
-              <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 <button type="submit" class="btn btn-warning">Délivrer</button>
-              </div>
+             
        
       </form>
       
       </td>
+      <td></td>
 
 
     </tr> @endforeach
@@ -186,13 +186,13 @@
 
              
   
-              <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+             
                 <button type="submit" class="btn btn-warning">retour au stock</button>
-              </div>
+             
        
       </form>
       </td>
-
+<td></td>
 
     </tr> @endforeach
   </tbody>
