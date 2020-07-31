@@ -231,6 +231,7 @@ $botman->hears('p([0-9]+)', function ($bot, $number) {
     $firstname = $user->getFirstName();
     $lastname = $user->getLastName();
     $facebook=$firstname.'-'.$lastname;
+    $this->bot->reply('  أحسنت الإختيار 😍 ');
     $bot->startConversation(new ExampleConversation($number,$facebook));
 
 });

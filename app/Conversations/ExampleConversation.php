@@ -50,7 +50,6 @@ public function __construct(string $m ,string $f) {
            
             $this->arr[]=Button::create($t->taille)->value($t->taille);
            }  } 
-           $this->bot->reply('  أحسنت الإختيار 😍 ');
 
     $question = Question::create(' إختر المقاس المناسب بالضغط على زر من القائمة أسفله :  ')->addButtons($this->arr);
         $this->ask($question, function (Answer $answer) {
