@@ -51,7 +51,7 @@
         <td>{{$cm->product->nom}}</td>
         <td>{{$cm->telephone}}</td>
         <td>{{$cm->facebook}}</td>
-        <td>{{$cm->created_at}}</td>
+        <td>{{date('d/m/Y H:i', strtotime($cm->created_at))}}</td>
         <td>
         
         
@@ -67,7 +67,7 @@
             <button type="submit" class="btn btn-success">Confirmer </button>
 
           </form>
-    <p></p>
+  
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 
                   <form action="{{ route('commandes.destroy',$cm->id) }}" method="POST">
