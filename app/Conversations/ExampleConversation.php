@@ -125,7 +125,7 @@ $this->ask($question, function (Answer $answer) {
 });
 
 
-} else{$this->bot->reply('من فضلك أدخل رقم هاتف صحيح ');
+} else{$this->bot->reply('الرقم الذي أدخلته غير صحيح');
 $this->askPhone();}
     }); 
 }
