@@ -36,7 +36,7 @@ public function __construct(string $m ,string $f) {
 }
 
     public function askFirstname(){
-    $this->arr=[];
+        $this->arr=[];
        
            
 
@@ -51,76 +51,85 @@ public function __construct(string $m ,string $f) {
             $this->arr[]=Button::create($t->taille)->value($t->taille);
            }  } 
 
-    $question = Question::create(' إختر المقاس المناسب بالضغط على زر من القائمة أسفله :  ')->addButtons($this->arr);
+        $question = Question::create(' إختر المقاس المناسب بالضغط على زر من القائمة أسفله :  ')->addButtons($this->arr);
         $this->ask($question, function (Answer $answer) {
         $this->taille=$answer->getText(); 
        if( $this->taille==='S' OR $this->taille==='M' OR $this->taille==='L' OR $this->taille==='XL' OR $this->taille==='XXL'){
-        $this->sup=Product::where('id',$this->m)->first();
 
     
         $this->bot->reply('  جيد جدا  👌 ');
-        $this->ask(' من فضلك أدخل رقم هاتفك  ☎ : ', function(Answer $answer) {
-                // Save result
-        $this->phone = $answer->getText();
-        $this->bot->reply('   ☺ المرحلة الأخيرة  ');
-        $this->bot->typesAndWaits(1);
-        $this->bot->reply(' 🛒 تأكيد الطلبية');
-        $this->attachment = new Image($this->sup->photo, [
-            'custom_payload' => true,
-        ]);
-        
-        // Build message object
-        $this->message = OutgoingMessage::create('This is my text')
-                    ->withAttachment( $this->attachment);
-        
-        // Reply message object
-      
-        $this->bot->reply($this->message);
-        $this->bot->reply(' المقاس : ' .$this->taille);
-        $this->bot->reply('  الهاتف ☎ : '.$this->phone);
-        $question=Question::create( 'السعر  💵 : '.$this->sup->prix)->addButtons([
-            Button::create(' ✅ تأكيد الطلبية')->value('yes'),
-            Button::create(' ❎ إلغاء الطلب')->value('no'),
-        ]);
-        $this->ask($question, function (Answer $answer) {
-
-            
-            if($answer->getValue() === 'yes') {
-
-                $this->bot->typesAndWaits(1);
-                $this->add();
-
-            }
-            elseif($answer->getValue() === 'no'){  $this->bot->reply(ButtonTemplate::create('تم إلغاء طلبك بنجاح ')
-                ->addButton(ElementButton::create('🛍 الشراء من جديد')
-                    ->type('postback')
-                    ->payload('show_products')
-                )
-                ->addButton(ElementButton::create(' 🛒 طلبياتي ')
-                ->type('postback')
-                ->payload('show_commandes')
-            )
-                ->addButton(ElementButton::create(' 💬 استفسار ')
-                    ->type('postback')
-                    ->payload('show_commandes')
-                )
-            );
-                }
-        });
-    
-       
-               
-            }); 
-    
-    
-        }
+        $this->askPhone();}
         else {$this->bot->reply('خطأ... يرجى الإختيار من القائمة');
             $this->bot->reply('سيتم إعادة توجيهك');
             $this->askFirstname();}
-        });
+
         
     
+        
+       
+        });
+    
+    
     }
+
+    public function askPhone()
+    {$this->ask(' من فضلك أدخل رقم هاتفك  ☎ : ', function(Answer $answer) {
+        // Save result
+$this->phone = $answer->getText();
+if(is_numeric($this->phone)){
+$this->bot->reply('   ☺ المرحلة الأخيرة  ');
+$this->bot->typesAndWaits(1);
+$this->bot->reply(' 🛒 تأكيد الطلبية');  
+$this->sup=Product::where('id',$this->m)->first();
+$this->attachment = new Image($this->sup->photo, [
+    'custom_payload' => true,
+]);
+
+// Build message object
+$this->message = OutgoingMessage::create('This is my text')
+            ->withAttachment( $this->attachment);
+
+// Reply message object
+
+$this->bot->reply($this->message);
+$this->bot->reply(' المقاس : ' .$this->taille);
+$this->bot->reply('  الهاتف ☎ : '.$this->phone);
+$question=Question::create( 'السعر  💵 : '.$this->sup->prix)->addButtons([
+    Button::create(' ✅ تأكيد الطلبية')->value('yes'),
+    Button::create(' ❎ إلغاء الطلب')->value('no'),
+]);
+$this->ask($question, function (Answer $answer) {
+
+    
+    if($answer->getValue() === 'yes') {
+
+        $this->bot->typesAndWaits(1);
+        $this->add();
+
+    }
+    elseif($answer->getValue() === 'no'){  $this->bot->reply(ButtonTemplate::create('تم إلغاء طلبك بنجاح ')
+        ->addButton(ElementButton::create('🛍 الشراء من جديد')
+            ->type('postback')
+            ->payload('show_products')
+        )
+        ->addButton(ElementButton::create(' 🛒 طلبياتي ')
+        ->type('postback')
+        ->payload('show_commandes')
+    )
+        ->addButton(ElementButton::create(' 💬 استفسار ')
+            ->type('postback')
+            ->payload('show_commandes')
+        )
+    );
+        }
+});
+
+
+} else{$this->bot->reply('من فضلك أدخل رقم هاتف صحيح ');
+$this->askPhone();}
+    }); 
+}
+
 
     public function add()
     {
