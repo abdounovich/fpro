@@ -68,7 +68,6 @@
 
           </form>
   
-                <div class="col-xs-12 col-sm-12 col-md-12 text-center">
                 
                   <form action="{{ route('commandes.destroy',$cm->id) }}" method="POST">
    
@@ -78,8 +77,7 @@
                     @method('DELETE')
 
                     <button type="submit" class="btn btn-danger">Delete</button>
-                </form>
-                </div>
+                
          
         </form>
         
