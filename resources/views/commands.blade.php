@@ -51,7 +51,7 @@
         <td>{{$cm->product->nom}}</td>
         <td>{{$cm->telephone}}</td>
         <td>{{$cm->facebook}}</td>
-        <td>{{date('d/m/Y H:i', strtotime($cm->created_at))}}</td>
+        <td>{{date('d-m-Y H:i', strtotime($cm->created_at))}}</td>
         <td>
         
         
