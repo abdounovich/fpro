@@ -141,7 +141,7 @@ $this->askPhone();}
       $c->taille=$this->taille;
       $c->facebook= $this->f;
       $c->save();
-$this->message=$c->facebook." a ajouter une commande :". $this->sup->nom ." avec la taille: ". $c->taille."numero : ". $c->telephone;
+$this->message="\n".$c->facebook." a ajouter une commande :". $this->sup->nom ."\n". "avec la taille: ". $c->taille."\n"." numero : ". $c->telephone;
 
 
 
