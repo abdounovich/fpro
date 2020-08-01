@@ -50,7 +50,7 @@
         <div class="container">
             <div class="content">
                 <div class="logo">
-                    <img class="img-fluid" src="https://res.cloudinary.com/ds9qfm1ok/image/upload/v1596241953/logo_jhat0g.png" alt="">
+                    <img class="img-fluid" src="https://res.cloudinary.com/ds9qfm1ok/image/upload/v1596241953/logo_jhat0g.png" width="50" height="50" alt="">
                 </div>
         
                 <div class="links">
