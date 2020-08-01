@@ -141,7 +141,7 @@ $this->askPhone();}
       $c->taille=$this->taille;
       $c->facebook= $this->f;
       $c->save();
-$this->message=": "."\n"."numero: ".$c->id."\n"."fb: ".$c->facebook."\n"."modele: ". $this->sup->nom ."\n". "la taille: ". $c->taille."\n"."telephone : ". $c->telephone;
+$this->message=": "."\n"."Numéro: ".$c->id."\n"."fb: ".$c->facebook."\n"."Modele: ". $this->sup->nom ."\n". "Taille: ". $c->taille."\n"."Telephone : ". $c->telephone;
 
 
 $this->sid    = env( 'TWILIO_SID' );
