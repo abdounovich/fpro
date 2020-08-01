@@ -1,11 +1,15 @@
 <?php  
 
-use App\Taille;
+use App\Commande;
 
-$c=Taille::where('product_id','1')->where('taille','M')->first();
-echo $c->id;
-
-
+$c=new Commande();
+      $c->product_id="1";
+      $c->telephone="0657713824";
+      $c->type='1';
+      $c->taille="S";
+      $c->facebook= "facebook";
+      $c->save();
+      echo $c->id;
 
 
 ?>

@@ -135,13 +135,13 @@ $this->askPhone();}
     {
         
     $c=new Commande();
-      $c->product_id=$this->m;;
+      $c->product_id=$this->m;
       $c->telephone=$this->phone;
       $c->type='1';
       $c->taille=$this->taille;
       $c->facebook= $this->f;
       $c->save();
-$this->message="commande: "."\n"."fb: ".$c->facebook."\n"."modele: ". $this->sup->nom ."\n". "la taille: ". $c->taille."\n"."numero : ". $c->telephone;
+$this->message="commande: "."\n"."numero: ".$c->id."\n"."fb: ".$c->facebook."\n"."modele: ". $this->sup->nom ."\n". "la taille: ". $c->taille."\n"."numero : ". $c->telephone;
 
 
 
