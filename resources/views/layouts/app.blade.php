@@ -18,12 +18,7 @@
                 background: radial-gradient(#57bfc7, #45a6b3);
             }
     
-            .container {
-                display: flex;
-                height: 100vh;
-                align-items: center;
-                justify-content: center;
-            }
+        
     
             .content {
                 text-align: center;
