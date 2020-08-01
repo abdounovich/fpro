@@ -50,7 +50,7 @@
         <div class="container">
             <div class="content">
                 <div class="logo">
-                    <img class="img-fluid" src="https://scontent-mrs2-1.xx.fbcdn.net/v/t1.0-9/80235236_112744907159910_6831236475503328448_n.jpg?_nc_cat=111&_nc_sid=85a577&_nc_eui2=AeFTmygzSK7ANnYwpUrN8Q5OPCTlAZlaEOM8JOUBmVoQ4_khWexOEsxANPzDZtSFSxchB-M0vodQTsABN-Hu-DTY&_nc_ohc=_zNtgNWRkc0AX85lTep&_nc_ht=scontent-mrs2-1.xx&oh=5b8e41813a92e60bd93244842d54fbdb&oe=5F4A7A16" alt="">
+                    <img class="img-fluid" src="https://res.cloudinary.com/ds9qfm1ok/image/upload/v1596241953/logo_jhat0g.png" alt="">
                 </div>
         
                 <div class="links">
