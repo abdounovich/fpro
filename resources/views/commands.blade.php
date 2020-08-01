@@ -37,7 +37,20 @@
       </tr>
     </thead>
     <tbody>
-       
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Photo</th>
+          <th>Taille</th>
+          <th>Nom</th>
+          <th>Telephone</th>
+          <th>Facebook</th>
+          <th>Date</th>
+          <th></th>
+          <th></th>
+  
+        </tr>
+      </thead>
      
    
   
@@ -97,7 +110,20 @@
   <div class="h3">Commande en attente de livraison</div>
   <br>
 <table class="table">
- 
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Photo</th>
+      <th>Taille</th>
+      <th>Nom</th>
+      <th>Telephone</th>
+      <th>Facebook</th>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+
+    </tr>
+  </thead>
   <tbody>
      
    
