@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-</head>
-<body>
-    <section class="site-section">
-        <div class="container">
-  <p></p><br/>
+@extends('layouts.app')
+
+@section('title', 'Ajouter un produit')
+
+
+
+@section('content')
+<p></p><br/>
           <div class="row mb-5">
             <div class="col-lg-12">
      <form action="/AP"  method="post" role="form" enctype="multipart/form-data" class="p-4 p-md-5 border rounded">
@@ -114,8 +107,8 @@
              
             </div>
           </div></form>
-        </div>
-      </section>
+        
+   
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
       <script>
@@ -158,5 +151,6 @@
   <script src="js/bootstrap-select.min.js"></script>
   <script src="js/custom.js"></script>
      
-</body>
-</html>
+
+@endsection
+  
