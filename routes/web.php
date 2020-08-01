@@ -26,6 +26,7 @@ Route::get('/', function () {
 
 
 
+
 Route::resource('commandes','CommandeController');
 Route::resource('tailles','TailleController');
 

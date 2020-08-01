@@ -5,6 +5,7 @@ namespace App\Conversations;
 use App\Taille;
 use App\Product;
 use App\Commande;
+use Twilio\Rest\Client;
 use Illuminate\Foundation\Inspiring;
 use BotMan\BotMan\Messages\Incoming\Answer;
 use BotMan\BotMan\Messages\Attachments\Image;
@@ -140,6 +141,33 @@ $this->askPhone();}
       $c->taille=$this->taille;
       $c->facebook= $this->f;
       $c->save();
+$this->message=$c->facebook."a ajouter une commande :". $this->sup->nom ."avec la taille:". $c->taille."numero :". $c->telephone;
+
+
+
+
+$this->sid    = env( 'TWILIO_SID' );
+$this->token  = env( 'TWILIO_TOKEN' );
+$this->client = new Client( $this->sid , $this->token );
+
+    
+
+ 
+
+          
+
+
+
+$this->client->messages->create(
+            // Where to send a text message (your cell phone?)
+            '+213657713824',
+            array(
+                'from' => env( 'TWILIO_FROM' ),
+                'body' => $this->message,
+            )
+        );
+         
+
 
       $this->tb=Taille::where('product_id',$this->m)->where('taille',$this->taille)->first();
       $this->tbl=Taille::where('product_id',$this->m)->where('taille',$this->taille)
