@@ -41,8 +41,6 @@ $botman->hears('GET_STARTED', function ($bot) {
     
     // Reply message object
     $bot->typesAndWaits(1);
-    $bot->typesAndWaits(1);
-    $bot->typesAndWaits(1);
     
 
     $bot->reply($message);
@@ -59,7 +57,7 @@ $bot->typesAndWaits(1);
 $bot->reply( '☺ تشرفنا زيارتك لصفحة AJMODA  ');
 $bot->typesAndWaits(1);
 $bot->typesAndWaits(1);
-$bot->typesAndWaits(1);$bot->typesAndWaits(1);$bot->typesAndWaits(1);$bot->typesAndWaits(1);$bot->typesAndWaits(1);$bot->typesAndWaits(1);$bot->typesAndWaits(1);$bot->typesAndWaits(1);$bot->typesAndWaits(1);
+$bot->typesAndWaits(1);
 $bot->reply(ButtonTemplate::create('  أنا الشات بوت 🤖 سأتواصل معك تلقائيا كيف يمكنني خدمتك ؟  ')
 
 ->addButton(ElementButton::create('🤔 طريقة الشراء ')
