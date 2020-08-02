@@ -146,7 +146,7 @@ $this->askPhone();}
       $this->tb=Taille::where('product_id',$this->m)->where('taille',$this->taille)->first();
       $this->tbl=Taille::where('product_id',$this->m)->where('taille',$this->taille)
       ->update(array('nombre' =>  $this->tb->nombre-1));  
-      $this->bot->reply(ButtonTemplate::create(' ✅  لقد تم حفظ طلبك بنجاح   '.$this->f."\n"." سوف نتصل بك قريبا  "."شكرا لك ")
+      $this->bot->reply(ButtonTemplate::create(' شكرا لك '.$this->f."\n".' ✅ لقد تم حفظ طلبك بنجاح'."\n".'سوف نتصل بك قريبا')
       ->addButton(ElementButton::create('🛍 الشراء من جديد')
           ->type('postback')
           ->payload('show_products')
