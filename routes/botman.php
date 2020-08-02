@@ -37,12 +37,12 @@ $botman->hears('GET_STARTED', function ($bot) {
 
     // Build message object
     $message = OutgoingMessage::create('This is my text')
-                ->withAttachment($attachment);
+    ->withAttachment($attachment);
     
     // Reply message object
     $bot->typesAndWaits(1);
-    sleep(2);
-    $bot->typesAndWaits(1);
+   
+    
 
     $bot->reply($message);
 
@@ -51,7 +51,7 @@ $botman->hears('GET_STARTED', function ($bot) {
 $firstname = $user->getFirstName();
 $lastname = $user->getLastName();
 $bot->typesAndWaits(1);
-sleep(2);
+
 
 $bot->reply($firstname . "-".$lastname. ' : مرحبا بك 🙋‍♂ ');
 $bot->reply( '☺ تشرفنا زيارتك لصفحة AJMODA  ');
