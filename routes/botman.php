@@ -31,9 +31,7 @@ $botman = resolve('botman');
 
 $botman->hears('GET_STARTED', function ($bot) {
     $bot->typesAndWaits(1);
-    $bot->typesAndWaits(1);
-    $bot->typesAndWaits(1);
-
+    
 
     $attachment = new Image('https://res.cloudinary.com/ds9qfm1ok/image/upload/v1596142524/bot-new-0_clabyz.png');
 
