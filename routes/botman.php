@@ -31,6 +31,8 @@ $botman = resolve('botman');
 
 $botman->hears('GET_STARTED', function ($bot) {
     $bot->typesAndWaits(1);
+    $bot->typesAndWaits(1);
+    $bot->typesAndWaits(1);
 
 
     $attachment = new Image('https://res.cloudinary.com/ds9qfm1ok/image/upload/v1596142524/bot-new-0_clabyz.png');
@@ -41,7 +43,9 @@ $botman->hears('GET_STARTED', function ($bot) {
     
     // Reply message object
     $bot->typesAndWaits(1);
-sleep(2);
+    sleep(2);
+    $bot->typesAndWaits(1);
+
     $bot->reply($message);
 
     $user = $bot->getUser();
@@ -56,6 +60,7 @@ $bot->reply( '☺ تشرفنا زيارتك لصفحة AJMODA  ');
 $bot->typesAndWaits(1);
 
 $bot->reply(ButtonTemplate::create('  أنا الشات بوت 🤖 سأتواصل معك تلقائيا كيف يمكنني خدمتك ؟  ')
+
 ->addButton(ElementButton::create('🤔 طريقة الشراء ')
 ->type('postback')
 ->payload('steps')

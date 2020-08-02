@@ -65,7 +65,7 @@ return [
         
             
                 'locale' => 'default',
-                'text' => ' ! {{user_full_name}} مرحبا بك  ',
+                'text' => ' ! {{user_full_name}} مرحبا بك ',
             ],
             [
                 'locale' => 'en_US',

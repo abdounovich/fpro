@@ -156,8 +156,7 @@ $this->askPhone();}
       ->payload('show_commandes')
   )
       ->addButton(ElementButton::create(' 💬 استفسار ')
-          ->type('postback')
-          ->payload('show_commandes')
+      ->url('https://www.messenger.com/t/merahi.adjalile')
       )
   );
     }
