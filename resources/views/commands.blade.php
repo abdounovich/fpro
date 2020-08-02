@@ -5,14 +5,14 @@
 
 @section('content')
 <br>
-<div class="h3">Commande en attente de confirmation </div>
+<div class="h4">Commande en attente de confirmation </div>
 <br>
 @if ($message = Session::get('success'))
 <div class="alert alert-success">
     <p>{{ $message }}</p>
 </div>
 @endif
-<table class="table">
+<table class="table table-hover" style="color: blanchedalmond">
  
   <tbody>
     <thead>
@@ -85,10 +85,10 @@
 <p></p>
 <div class="container">
 <br>
-<div class="h3">Commande en attente de livraison</div>
+<div class="h4">Commande en attente de livraison</div>
 <br>
-<table class="table">
-<thead>
+<table class="table table-hover" style="color: blanchedalmond">
+  <thead>
   <tr>
     <th>ID</th>
     <th>Photo</th>
@@ -155,10 +155,10 @@
 <p></p>
 <div class="container">
 <br>
-<div class="h3">Commandes livrée</div>
+<div class="h4">Commandes livrée</div>
 <br>
-<table class="table">
-<thead>
+<table class="table table-hover" style="color: blanchedalmond">
+  <thead>
   <tr>
     <th>ID</th>
     <th>Photo</th>

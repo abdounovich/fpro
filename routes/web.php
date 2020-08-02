@@ -62,3 +62,8 @@ Route::get('storage/images/avatar/{filename}', function ($filename)
     return $response;
 });
 
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});

@@ -21,6 +21,11 @@ class CommandeController extends Controller
         return view('commande')->with('com',$com);
             
     }
+    public function index()
+    {
+       
+            
+    }
 
     /**
      * Show the form for creating a new resource.
