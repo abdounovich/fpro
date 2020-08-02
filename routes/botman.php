@@ -42,7 +42,7 @@ $botman->hears('GET_STARTED', function ($bot) {
     // Reply message object
     $bot->typesAndWaits(1);
     
-sleep(5);
+
     $bot->reply($message);
 
     $user = $bot->getUser();
