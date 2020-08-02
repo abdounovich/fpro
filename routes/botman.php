@@ -41,7 +41,8 @@ $botman->hears('GET_STARTED', function ($bot) {
     
     // Reply message object
     $bot->typesAndWaits(1);
-   
+    $bot->typesAndWaits(1);
+    $bot->typesAndWaits(1);
     
 
     $bot->reply($message);
