@@ -10,13 +10,8 @@ use BotMan\Drivers\Facebook\Extensions\Element;
 use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
 use BotMan\Drivers\Facebook\Extensions\ElementButton;
 use BotMan\Drivers\Facebook\Extensions\ButtonTemplate;
-use BotMan\Drivers\Facebook\Extensions\ReceiptAddress;
-use BotMan\Drivers\Facebook\Extensions\ReceiptElement;
-use BotMan\Drivers\Facebook\Extensions\ReceiptSummary;
+
 use BotMan\Drivers\Facebook\Extensions\GenericTemplate;
-use BotMan\Drivers\Facebook\Extensions\ReceiptTemplate;
-use BotMan\Drivers\Facebook\Extensions\ReceiptAdjustment;
-use BotMan\Drivers\Facebook\Extensions\MediaAttachmentElement;
 
 
 
@@ -30,7 +25,7 @@ $botman = resolve('botman');
 
 
 $botman->hears('GET_STARTED', function ($bot) {
-    $bot->typesAndWaits(1);
+  /*   $bot->typesAndWaits(1);
     
 
     $attachment = new Image('https://res.cloudinary.com/ds9qfm1ok/image/upload/v1596142524/bot-new-0_clabyz.png');
@@ -43,13 +38,12 @@ $botman->hears('GET_STARTED', function ($bot) {
     $bot->typesAndWaits(1);
     
 
-    $bot->reply($message);
+    $bot->reply($message); */
 
     $user = $bot->getUser();
 // Access first name
 $firstname = $user->getFirstName();
 $lastname = $user->getLastName();
-$bot->typesAndWaits(1);
 
 
 $bot->reply($firstname . "-".$lastname. ' : مرحبا بك 🙋‍♂ ');
