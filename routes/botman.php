@@ -25,10 +25,10 @@ $botman = resolve('botman');
 
 
 $botman->hears('GET_STARTED', function ($bot) {
-  /*   $bot->typesAndWaits(1);
+     $bot->typesAndWaits(1);
     
 
-    $attachment = new Image('https://res.cloudinary.com/ds9qfm1ok/image/upload/v1596142524/bot-new-0_clabyz.png');
+    $attachment = new Image('https://res.cloudinary.com/ds9qfm1ok/image/upload/v1597263583/bot-new-0-ConvertImage_k3wvu0.png');
 
     // Build message object
     $message = OutgoingMessage::create('This is my text')
@@ -38,7 +38,7 @@ $botman->hears('GET_STARTED', function ($bot) {
     $bot->typesAndWaits(1);
     
 
-    $bot->reply($message); */
+    $bot->reply($message); 
 
     $user = $bot->getUser();
 // Access first name
