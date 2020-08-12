@@ -46,6 +46,7 @@ $firstname = $user->getFirstName();
 $lastname = $user->getLastName();
 
 
+
 $bot->reply($firstname . "-".$lastname. ' : مرحبا بك 🙋‍♂ ');
 $bot->typesAndWaits(1);
 $bot->reply( '☺ تشرفنا زيارتك لصفحة AJMODA  ');
