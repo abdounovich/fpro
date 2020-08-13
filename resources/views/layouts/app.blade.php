@@ -71,7 +71,7 @@ body{
                     <a href="/commandes" class="pr-4" >Les commandes </a></div><div class="sm-4">
                     <img class="img-fluid" src="{{asset('images/products.png')}}" width="30" height="30" alt="aaaa">
 
-                    <a href="show_p" class="p-4" >Liste des produits</a></div>
+                    <a href="show_p" class="pr-4" >Liste des produits</a></div>
                     </div>
                 </div>
             </div>
