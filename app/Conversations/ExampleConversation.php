@@ -93,7 +93,7 @@ $this->message = OutgoingMessage::create('This is my text')
 $this->bot->reply($this->message);
 // $this->bot->reply(' المقاس : ' .$this->taille);
 $this->bot->reply('  الهاتف ☎ : '.$this->phone);
-$question=Question::create( 'السعر  💵 : '.$this->sup->prix)->addButtons([
+$question=Question::create( 'السعر  💵 : '.$this->sup->prix ." دج ")->addButtons([
     Button::create(' ✅ تأكيد الطلبية')->value('yes'),
     Button::create(' ❎ إلغاء الطلب')->value('no'),
 ]);
