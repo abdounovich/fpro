@@ -61,14 +61,14 @@ body{
                     <img class="img-fluid" src="https://res.cloudinary.com/ds9qfm1ok/image/upload/v1596241953/logo_jhat0g.png" width="100" height="100" alt="">
                 </div>
         
-                <div class="links p-4" >
+                <div class="links pr-4" >
                     <div class="row align-content-center">
                     <div class="sm-4 "><img class="img-fluid" src="{{asset('images/add_p.png')}}" width="30" height="30" alt="aaaa">
-                    <a href="/AP" class="p-4">Ajouter un produit</a></div>
+                    <a href="/AP" class="pr-4">Ajouter un produit</a></div>
                     <div class="sm-4">
                     <img class="img-fluid" src="{{asset('images/commandes.png')}}" width="30" height="30" alt="aaaa">
 
-                    <a href="/commandes" class="p-4" >Les commandes </a></div><div class="sm-4">
+                    <a href="/commandes" class="pr-4" >Les commandes </a></div><div class="sm-4">
                     <img class="img-fluid" src="{{asset('images/products.png')}}" width="30" height="30" alt="aaaa">
 
                     <a href="show_p" class="p-4" >Liste des produits</a></div>
