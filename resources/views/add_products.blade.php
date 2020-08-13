@@ -58,7 +58,7 @@
      
                 <div class="form-group">
                   <label for="cat">Tailles :</label>
- @php ($lesTailles = ['S','M','L','XL','XXL'])
+ @php ($lesTailles = ['standard','S','M','L','XL','XXL'])
 
                  
                  
