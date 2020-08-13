@@ -91,7 +91,7 @@ $this->message = OutgoingMessage::create('This is my text')
 // Reply message object
 
 $this->bot->reply($this->message);
-$this->bot->reply(' المقاس : ' .$this->taille);
+// $this->bot->reply(' المقاس : ' .$this->taille);
 $this->bot->reply('  الهاتف ☎ : '.$this->phone);
 $question=Question::create( 'السعر  💵 : '.$this->sup->prix)->addButtons([
     Button::create(' ✅ تأكيد الطلبية')->value('yes'),
@@ -137,7 +137,8 @@ $this->askPhone();}
       $c->product_id=$this->m;
       $c->telephone=$this->phone;
       $c->type='1';
-      $c->taille=$this->taille;
+    //   $c->taille=$this->taille;
+    $c->taille='standard';
       $c->facebook= $this->f;
       $c->save();
 
@@ -163,6 +164,7 @@ $this->askPhone();}
     public function run()
     {
         // This will be called immediately
-        $this->askFirstname();
+        // $this->askFirstname();
+        $this->askPhone();
     }
 }
