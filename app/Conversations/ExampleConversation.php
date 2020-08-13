@@ -138,7 +138,8 @@ $this->askPhone();}
       $c->telephone=$this->phone;
       $c->type='1';
     //   $c->taille=$this->taille;
-    $c->taille='standard';
+    $this->taille='standard';
+    $c->taille=$this->taille;
       $c->facebook= $this->f;
       $c->save();
 
