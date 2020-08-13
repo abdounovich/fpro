@@ -66,10 +66,10 @@ body{
                     <div class="sm-4 "><img class="img-fluid" src="{{asset('images/add_p.png')}}" width="30" height="30" alt="aaaa">
                     <a href="/AP">Ajouter un produit</a></div>
                     <div class="sm-4">
-                    <img class="img-fluid" src="{{asset('images/commandes.png')}}" width="50" height="50" alt="aaaa">
+                    <img class="img-fluid" src="{{asset('images/commandes.png')}}" width="30" height="30" alt="aaaa">
 
                     <a href="/commandes">Les commandes </a></div><div class="sm-4">
-                    <img class="img-fluid" src="{{asset('images/products.png')}}" width="40" height="40" alt="aaaa">
+                    <img class="img-fluid" src="{{asset('images/products.png')}}" width="30" height="30" alt="aaaa">
 
                     <a href="show_p">Liste des produits</a></div>
                     </div>
