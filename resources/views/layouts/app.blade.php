@@ -64,14 +64,14 @@ body{
                 <div class="links p-4" >
                     <div class="row align-content-center">
                     <div class="sm-4 "><img class="img-fluid" src="{{asset('images/add_p.png')}}" width="30" height="30" alt="aaaa">
-                    <a href="/AP">Ajouter un produit</a></div>
+                    <a href="/AP" class="p-4">Ajouter un produit</a></div>
                     <div class="sm-4">
                     <img class="img-fluid" src="{{asset('images/commandes.png')}}" width="30" height="30" alt="aaaa">
 
-                    <a href="/commandes">Les commandes </a></div><div class="sm-4">
+                    <a href="/commandes" class="p-4" >Les commandes </a></div><div class="sm-4">
                     <img class="img-fluid" src="{{asset('images/products.png')}}" width="30" height="30" alt="aaaa">
 
-                    <a href="show_p">Liste des produits</a></div>
+                    <a href="show_p" class="p-4" >Liste des produits</a></div>
                     </div>
                 </div>
             </div>
