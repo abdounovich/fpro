@@ -111,34 +111,7 @@
    
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-      <script>
-  
-      $(document).ready(function(){
-  
-      $('select[name="wilayas"]').on('change',function(){
-      var wilaya_id=$(this).val();
-      if(wilaya_id){
-        $.ajax({
-          
-          url:'getCommune/'+wilaya_id,
-                type:"GET",
-                datatype:'json',
-                success:function(data){               
-                      $('select[name="communes"]').empty();
-                      $.each(data,function(key,value){
-                          $('select[name="communes"]').append('<option value="'+key+'">'+value+'</option>');
-                      });
-                  }
-                })
-      }
-                else{
-                      $('select[name="communes"]').empty();
-                  }
-              });
-      })
-  
-      </script>
-  
+    
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/isotope.pkgd.min.js"></script>

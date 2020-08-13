@@ -64,7 +64,9 @@ class ProductController extends Controller
 
               $p->save();
 
-$Titem=['S','M','L','XL','XXL'];
+// $Titem=['S','M','L','XL','XXL'];
+$Titem=['standard','S','M','L','XL','XXL'];
+
 foreach ($Titem as $key ) {
 
               $t=new Taille();
