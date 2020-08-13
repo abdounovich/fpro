@@ -63,7 +63,7 @@ body{
         
                 <div class="links p-4" >
                     <div class="row align-content-center">
-                    <div class="sm-4 "><img class="img-fluid" src="{{asset('images/add_p.png')}}" width="10" height="10" alt="aaaa">
+                    <div class="sm-4 "><img class="img-fluid" src="{{asset('images/add_p.png')}}" width="30" height="30" alt="aaaa">
                     <a href="/AP">Ajouter un produit</a></div>
                     <div class="sm-4">
                     <img class="img-fluid" src="{{asset('images/commandes.png')}}" width="50" height="50" alt="aaaa">
